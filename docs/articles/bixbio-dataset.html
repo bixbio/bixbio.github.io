@@ -8,6 +8,7 @@
 
 <meta name="author" content="Kevin Durant">
 <meta name="dcterms.date" content="2024-09-20">
+<meta name="description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
 
 <title>The Bixbio Genomic Dataset – bixbio</title>
 <style>
@@ -91,12 +92,12 @@ div.csl-indent {
 
 
 <meta property="og:title" content="The Bixbio Genomic Dataset – bixbio">
-<meta property="og:description" content="African genomics, global solutions">
-<meta property="og:image" content="images/brand-medium.png">
+<meta property="og:description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
+<meta property="og:image" content="figures/3-geographical.svg">
 <meta property="og:site_name" content="bixbio">
 <meta name="twitter:title" content="The Bixbio Genomic Dataset – bixbio">
-<meta name="twitter:description" content="African genomics, global solutions">
-<meta name="twitter:image" content="images/brand-medium.png">
+<meta name="twitter:description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
+<meta name="twitter:image" content="figures/3-geographical.svg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -165,6 +166,11 @@ div.csl-indent {
 <h1 class="title">The Bixbio Genomic Dataset</h1>
 </div>
 
+<div>
+  <div class="description">
+    Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -191,9 +197,11 @@ div.csl-indent {
 </header>
 
 
+<section id="introduction" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>As part of the <a href="https://emea.illumina.com/company/illumina-for-startups.html">Illumina Accelerator</a> program for startups in late 2021, Bixbio collected and sequenced the genomes of 750 Southern African individuals over the course of a few weeks. Just over half of this data forms the <strong>Bixbio South African Reference</strong> dataset: 397 whole-genome samples from healthy individuals with African or admixed-African ancestry, across 8 South African ethno-linguistic groups. It is to our knowledge the largest genomic dataset from Southern Africa.</p>
 <p>This reference data has been at the core of Bixbio’s research and development since its creation, both internally as we work to unlock the power of diverse genomic data, and externally in support of local research efforts. The bioinformatics landscape has changed significantly since our first analysis of this dataset, however, and in bringing the reference data up to date Bixbio has recently had the pleasure of collaborating with the DRAGEN team at Illumina, who supported the reanalysis of the 312 highest-coverage samples by providing access to the latest version of the complete DRAGEN and PopGen pipelines <span class="citation" data-cites="behera2024comprehensive">[<a href="#ref-behera2024comprehensive" role="doc-biblioref">1</a>]</span>. Not only have variants of all sizes been called using state-of-the-art techniques – including multi-ethnicity reference genomes designed to reduce bias at the alignment stage of the analysis – but the Bixbio cohort has also been joint-genotyped with the entire 1000 Genomes Project (1KGP) dataset, effectively augmenting the latter with data from Southern African subpopulations (a region which was otherwise unrepresented).</p>
-<p>Together the combined dataset provides a uniquely powerful resource for genomic research in Africa, the most genetically diverse region in the world. It includes 2,816 whole-genome samples, of which 973 are African; and 34 ethnicities, including 15 of recent African descent. A more in-depth look at the diversity of the dataset is presented <a href="2-haplotype-diversity.html" target="_blank">elsewhere</a>, including illustrative statistics related to genetic diversity at both the allelic and haplotype levels. We reproduce here, in <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;1</a>, a view of the distinct haplotypes observed in the region of the CYP2D6 gene as they occur in samples from different ethnicities, demonstrating one way in which global genetic diversity can to a large extent be viewed as a subset of African diversity.</p>
+<p>Together the combined dataset provides a uniquely powerful resource for genomic research in Africa, the most genetically diverse region in the world. It includes 2,816 whole-genome samples, of which 973 are African; and 34 ethnicities, including 15 of recent African descent. A more in-depth look at the diversity of the dataset is presented <a href="haplotype-diversity.html" target="_blank">elsewhere</a>, including illustrative statistics related to genetic diversity at both the allelic and haplotype levels. We reproduce here, in <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;1</a>, a view of the distinct haplotypes observed in the region of the CYP2D6 gene as they occur in samples from different ethnicities, demonstrating one way in which global genetic diversity can to a large extent be viewed as a subset of African diversity.</p>
 <div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -204,12 +212,13 @@ Figure&nbsp;1: Haplotype frequency by ethnicity in the combined 1KGP/Bixbio data
 </figcaption>
 </figure>
 </div>
+</section>
 <section id="perspective" class="level2">
 <h2 class="anchored" data-anchor-id="perspective">Perspective</h2>
 <p>The roughly 400 samples present in the Bixbio reference dataset may not seem like much compared to the scope of modern biobanks: the largest repository of genomic data in the world, for instance, is the UK Biobank, which currently consists of around 500,000 whole-genome samples; and the largest resource for aggregate genomic data, gnomAD, includes allele statistics from roughly 76,000 whole genomes. The UK Biobank is primarily made up of data from white individuals – approximately 95.6% of the dataset – alongside a small fraction of black individuals – roughly 1.6% <span class="citation" data-cites="ukbiobank2024ethnic constantinescu2022framework">[<a href="#ref-ukbiobank2024ethnic" role="doc-biblioref">2</a>,<a href="#ref-constantinescu2022framework" role="doc-biblioref">3</a>]</span>. (Recent UK census data reports values of 83.1% and 3.7% for these ethnic groups respectively, for comparison <span class="citation" data-cites="office2024ethnic wikipedia2024demographics">[<a href="#ref-office2024ethnic" role="doc-biblioref">4</a>,<a href="#ref-wikipedia2024demographics" role="doc-biblioref">5</a>]</span>.) On the other hand, gnomAD’s whole-genome dataset is significantly more diverse: although 51.7% of its samples are from European ethnicities (not necessarily white), 27.2% are from African or admixed African groups <span class="citation" data-cites="gnomad2024whats">[<a href="#ref-gnomad2024whats" role="doc-biblioref">6</a>]</span>.</p>
 <p>What does this mean in terms of sample numbers? Well, <em>combined</em>, two of the largest genomic datasets in the world include 28,926 (8,182 + 20,744) whole-genome samples from individuals of African descent. In addition to the fact that this is an alarmingly small number, there are three things to note here:</p>
 <ol type="1">
-<li><p><strong>Almost no genomic data comes from Southern Africa</strong> – let alone South Africa. Due to the fact that very little genetic sequencing occurs on the African continent (a disparity that is unfortunately growing <span class="citation" data-cites="mills2020gwas">[<a href="#ref-mills2020gwas" role="doc-biblioref">7</a>]</span>), much of the African-ancestry data that does exist represents African American, West African, and East African subpopulations; primarily from more developed African nations such as Nigeria and Kenya. This is a crucial omission, not just because there is more genetic diversity within the African continent than there is outside of it (see again our <a href="2-haplotype-diversity.html" target="_blank">related article</a>), but because these datasets are used to improve both bioinformatics and medical research and methods – and research has shown that the under-representation of ethnic groups can lead to inequalities in the efficacy of such methods <span class="citation" data-cites="martin2019clinical">[<a href="#ref-martin2019clinical" role="doc-biblioref">8</a>]</span>.</p></li>
+<li><p><strong>Almost no genomic data comes from Southern Africa</strong> – let alone South Africa. Due to the fact that very little genetic sequencing occurs on the African continent (a disparity that is unfortunately growing <span class="citation" data-cites="mills2020gwas">[<a href="#ref-mills2020gwas" role="doc-biblioref">7</a>]</span>), much of the African-ancestry data that does exist represents African American, West African, and East African subpopulations; primarily from more developed African nations such as Nigeria and Kenya. This is a crucial omission, not just because there is more genetic diversity within the African continent than there is outside of it (see again our <a href="haplotype-diversity.html" target="_blank">related article</a>), but because these datasets are used to improve both bioinformatics and medical research and methods – and research has shown that the under-representation of ethnic groups can lead to inequalities in the efficacy of such methods <span class="citation" data-cites="martin2019clinical">[<a href="#ref-martin2019clinical" role="doc-biblioref">8</a>]</span>.</p></li>
 <li><p><strong>All genomic data is not created equal</strong>, because large data sets are analysed using a variety of software pipelines. The sequencing and analysis of genomic data – the ‘calling’ of variant alleles from DNA ‘reads’ – is a complex, constantly evolving science. The last few years have seen, for instance, the introduction of long-read sequencing <span class="citation" data-cites="wang2021nanopore">[<a href="#ref-wang2021nanopore" role="doc-biblioref">9</a>]</span>, machine learning-based variant-calling algorithms <span class="citation" data-cites="poplin2018universal">[<a href="#ref-poplin2018universal" role="doc-biblioref">10</a>]</span>, and non-linear reference ‘pangenomes’ <span class="citation" data-cites="liao2023draft">[<a href="#ref-liao2023draft" role="doc-biblioref">11</a>]</span>. While this is in general a <em>good</em> thing for diverse data sets, it introduces real complications, since the outputs of different pipelines – and often even versions of the same pipeline – can generally not be compared or combined directly. The UK Biobank’s whole-genome data, for example, was analysed using two different pipelines, the most recent of which was released in 2020 and has been superseded by multiple newer versions. The gnomAD dataset is far more complex, involving data from more than 300 sources, and as such its maintainers were required to develop a pipeline of their own to combine and standardise disparate data <span class="citation" data-cites="gnomad2024gnomad">[<a href="#ref-gnomad2024gnomad" role="doc-biblioref">12</a>]</span>. The point here is that if the goal is a statistical analysis of a large number of genomes, the analysis procedure matters arguably as much as the composition of the dataset; and it isn’t good enough for African genomic data to simply exist: it needs to be analysed correctly as well.</p></li>
 <li><p><strong>Not all genomic data is equally accessible</strong>. This is perhaps perfectly understandable when one considers what whole-genome data is: a complete record of an individual’s DNA sequence. The ethical concerns surrounding the capture, access, and study of any genomic data are not trivial – especially when it comes to under-represented and previously disadvantaged people groups. The UK Biobank data contains individual whole-genome data, and researchers who apply for access to the data undergo a comprehensive vetting procedure. The gnomAD data is <em>aggregated</em>, i.e., each variant allele in the database is annotated with the frequency with which it occurs in certain subpopulations – but it is impossible to tell which alleles any single individual has. The gnomAD data is publicly accessible for this very reason: that genomes cannot be directly accessed.</p></li>
 </ol>
