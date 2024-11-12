@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Durant">
+<meta name="dcterms.date" content="2024-09-20">
+
+<title>Haplotype Diversity in Africa – bixbio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/icon-small.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<meta property="og:title" content="Haplotype Diversity in Africa – bixbio">
+<meta property="og:description" content="African genomics, global solutions">
+<meta property="og:image" content="images/brand-medium.png">
+<meta property="og:site_name" content="bixbio">
+<meta name="twitter:title" content="Haplotype Diversity in Africa – bixbio">
+<meta name="twitter:description" content="African genomics, global solutions">
+<meta name="twitter:image" content="images/brand-medium.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/icon-small.png" alt="bixbio" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../articles/haplotype-diversity.html">
+ <span class="dropdown-text">Genetic Diversity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/bixbio-dataset.html">
+ <span class="dropdown-text">Bixbio Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/laboratory-optimisation.html">
+ <span class="dropdown-text">Laboratory Optimisation</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles.html">
+ <span class="dropdown-text">All</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#the-basics" id="toc-the-basics" class="nav-link" data-scroll-target="#the-basics">The basics</a>
+  <ul class="collapse">
+  <li><a href="#population-groups" id="toc-population-groups" class="nav-link" data-scroll-target="#population-groups">Population groups</a></li>
+  <li><a href="#mutation-and-recombination" id="toc-mutation-and-recombination" class="nav-link" data-scroll-target="#mutation-and-recombination">Mutation and recombination</a></li>
+  </ul></li>
+  <li><a href="#the-statistics" id="toc-the-statistics" class="nav-link" data-scroll-target="#the-statistics">The statistics</a></li>
+  <li><a href="#the-simple-explanation" id="toc-the-simple-explanation" class="nav-link" data-scroll-target="#the-simple-explanation">The simple explanation</a></li>
+  <li><a href="#the-example" id="toc-the-example" class="nav-link" data-scroll-target="#the-example">The example</a></li>
+  <li><a href="#the-point" id="toc-the-point" class="nav-link" data-scroll-target="#the-point">The point</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Haplotype Diversity in Africa</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Durant </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 20, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>At Bixbio we work with the most diverse genomic data, all of the time, and we believe that diversity is the most important differentiator in both genetic research and its practical applications. So one might expect that we’d be very good at explaining <em>why</em> we care about genetic diversity,&nbsp;and even more fundamentally, <em>what</em> genetic diversity is. But the truth is that genetic diversity isn’t just one simple concept, and this means that it’s often talked about in ways that might not make intuitive sense, using broad strokes or impressive but opaque statistics. A proper explanation requires a small amount of patience – and a decent amount of good-quality data.</p>
+<p>The goal of this post is to attempt to provide such an explanation, highlighting the importance of African data along the way – the two are almost inseparable after all, given that Africa “harbours more genetic diversity” than any other continent <span class="citation" data-cites="tucci2019long">[<a href="#ref-tucci2019long" role="doc-biblioref">1</a>]</span>. Here we’ll try to unpack what that means.</p>
+<p>This topic lies at the heart of what we do at Bixbio: developing tools to analyse diverse genomic data as accurately and powerfully as possible. Much of that work is statistical in nature (I am a mathematician/computer scientist by training), and the content of this article reflects as much. While an effort has been made to be clear and thorough when explaining biological concepts, the intention here is not to provide a complete lesson in human or population genetics – for that one should find a good textbook.</p>
+<p>We start with a basic description of genetic variation and the mechanisms that give rise to genetic diversity, along with a useful illustration of global diversity from an African perspective. The remainder of the article then works towards a more complete demonstration of genetic diversity by describing how it originates at the haplotype level: we first show the difficulty of effectively describing diversity using genome-wide statistics, and then give an example of the extent of haplotype diversity within a single gene. If you already know what a haplotype block is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> you might choose to skip straight to <a href="#the-example">the end</a>, perhaps skimming the figures along the way.</p>
+<!-- while assuming as little domain knowledge -->
+<!-- Some of these details -- the analysis pipelines used, how haplotype inference was
+performed, etc. -- may end up being the subjects of future articles. -->
+<!-- The intention here was also not to provide a complete lesson in human or population
+genetics (for that you should find a good textbook): I haven't talked about how long
+genes or haplotype blocks usually are, or when global populations are believed to have
+migrated out of Africa, for example. -->
+<!-- The goal of this article was to describe genetic diversity with a minimal amount of
+technical detail, and as such there are many questions some readers might have that I
+will have left unanswered: which analysis pipelines were used, how haplotype inference
+was performed, etc. These may end up being the subjects of separate articles. The
+intention here was also not to provide a complete lesson in human or population genetics
+(for that you should find a good textbook): I haven't talked about how long genes or
+haplotype blocks usually are, or when global populations are believed to have migrated
+out of Africa, for example. -->
+</section>
+<section id="the-basics" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="the-basics">The basics</h2>
+<p>Starting at the beginning: each of us inherits 23 chromosomes from each of our parents, giving us 23 <em>pairs</em> of chromosomes, one of which is a pair of sex chromosomes – XX or XY. The <strong>genome</strong> refers to an individual’s complete set of DNA, made up of their chromosomes and a small amount of mitochondrial DNA inherited from their mother. DNA is made up of four <strong>nucleotides</strong> (represented by As, Cs, Gs, and Ts), and the ‘length’ of the human genome measured in nucleotides is around 6.2 billion <strong>base-pairs</strong> (<strong>bp</strong>) – about 3.1 billion bp per set of chromosomes.</p>
+<p>If you consider any two individuals, the vast majority of their genomes will be the same – they’ll have about 99.9% of their DNA in common. But this doesn’t mean that 99.9% of the human genome is <em>fixed</em>, or common to everyone. Rather, there are millions of positions along the genome where variation can occur, and this variation can take different forms: it could involve a change to a single nucleotide (so-called single-nucleotide variants, or SNVs); sequences in which a few nucleotides are ‘inserted’ or ‘deleted’ relative to one another (indels); or large-scale differences in the DNA sequence (structural variants, commonly defined as involving more than 50 bp). Generally, about 80% of the differences between two genomes are SNVs.</p>
+<p>Regardless of length, the known possibilities at any given position are referred to as <strong>alleles</strong>. Most variant positions will only have two possible alleles, and one allele (the ‘major’ allele) will often be far more common than the others. For the sake of illustration, a hypothetical pair of sequences involving a single-nucleotide variant might look something like the following: <em>A<strong>A</strong>TTT</em> and <em>A<strong>C</strong>TTT</em>. In this case the variant’s alleles are <em><strong>A</strong></em> and <em><strong>C</strong></em>. Sequences implying an indel might be <em>GTGTGT</em> and <em>GTGT<strong>GT</strong>GT</em>, in which case the alleles could be defined as <em>T</em> and <em>T<strong>GT</strong></em>.</p>
+<p>Since each of us has two ‘copies’ of each non-sex chromosome, we also have two alleles at each position where variation is known to occur. Once DNA has been sequenced (hardware) and analysed (software), we end up with what are known as <strong>variant calls</strong>: records that give the likelihood of a genome containing a variant allele on one or both strands of DNA – known as heterozygosity and homozygosity respectively. One of the difficulties when using short-read DNA sequencing (the most common technology) is that it is in general not possible to ‘phase’ alleles across positions, separating alleles of the maternal chromosome from those of the paternal one, and thereby reconstructing the individual chromosomes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> This is not a critical issue, since a lot of genomic analysis occurs at the single-variant level, but it will be important in understanding later sections of this article. It explains too why so many statistics in genomics are currently expressed in terms of simple variant counts, even though variants are <em>not</em> the most natural way to think about genetic diversity; and doing so can, at times (or without proper context), be somewhat confusing.</p>
+<section id="population-groups" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="population-groups">Population groups</h3>
+<p>Given two individual genomes then, the ‘99.9% similar’ statistic stated above comes from the fact that the first will differ from the second by about 5–7 million alleles. We say 5 <em>to</em> 7 million because it depends very much on who the two individuals are. And this is where things get interesting.</p>
+<p>The 1000 Genomes Project <span class="citation" data-cites="byrska2022high">[<a href="#ref-byrska2022high" role="doc-biblioref">3</a>]</span>, or 1KGP, is one of the most important datasets in genomics. And like all other genomic datasets, databases, and biobanks, it stratifies its data at multiple levels. The most important of these is <em>ethnicity</em>, i.e., ethno-linguistic groups such as Han Chinese, Gujarati Indian, Toscani Italian, etc. The 1KGP dataset is an incredible achievement and resource, but when viewed at this level it is clear that it represents only a small slice of global genetics: its 26 ethnicities from 21 countries account for just a fraction of all of human diversity.</p>
+<div class="page-columns page-full">
+<div id="fig-geography" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
+<img src="figures/2-geographical.svg" class="img-fluid figure-img column-body-outset" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: The approximate geographical locations at which the 1KGP and Bixbio samples used in this article were collected. The 2,504 1KGP samples are in orange, and the 312 Bixbio samples in blue.
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The 1KGP data is often grouped at higher levels as well, for instance into five continental regions: Sub-Saharan Africa, Latin America, Eastern Asia, Southern Asia, and Europe. The difficulty with such groupings is immediately apparent: what about Northern Africa, the Middle East, etc.? Which parts of Europe are represented? (Britain, Finland, Spain, and Italy.) Does Sub-Saharan Africa include Southern Africa? (No.)</p>
+<p>And more importantly, does it even make sense to talk about different ‘groups’ of humans? The answer to this is both yes and no: yes, because if two groups of people don’t cross paths for long periods of time their genetics will reflect this – we will be able to predict which group an individual belongs to by looking at inherited patterns in their genome. And no, because <em>human genetics exists as a spectrum</em> <span class="citation" data-cites="constantinescu2022framework">[<a href="#ref-constantinescu2022framework" role="doc-biblioref">4</a>]</span>. The fact that it often <em>looks</em> as though it can be partitioned into neat categories is due to the difficulty of collecting genomic data – of course sampled individuals from Western Africa and Eastern Asia will have noticeably different ancestry. But for every two seemingly distinguishable groups of people, we’ll almost certainly be able to find a group that lies in between and bridges the genetic gap. This is not to say that there is a problem with the 1KGP or any other dataset, but simply a reminder that those of us who make use of such datasets have a responsibility to represent them with fidelity.</p>
+<p>Disclaimer aside, the truth is that continental groupings <em>are</em> useful for genetic analyses, since they are naturally intertwined with the migrations of ancient human populations, and therefore with human evolution and genetic diversity. In what ways do we see this? Well for one (returning to the example above): the genomes of two individuals sampled from Europe, Asia, or the Americas will differ by roughly 5 million alleles across perhaps 4.5 million variant positions. This is the case if the individuals are of the same ethnicity (but not close relatives), or if they come from opposite ends of the world. If one (or both) of those individuals were from <em>Africa</em>, however, the difference would be significantly greater: around 6.5 million alleles across 5.5 million positions. Two individuals from, say, a Zulu population in South Africa will have at least 6 million allelic differences – as will a Zulu and Luhya (Kenyan) pair, and a Zulu and Dai (Chinese) pair, and a Luhya and Toscani (Italian) pair. If neither individual is of African ancestry, however, there will be about 20% less genetic variation: between two Toscani individuals, say, or Toscani and Finnish, Finnish and Gujarati (Indian), etc.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
+<div id="fig-pairwise" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/2-pairwise-distance.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at which two genomes differ (technically autosomes, since sex chromosomes were ignored), grouped by whether both, one, or neither of the individuals are African. Pairwise comparisons for 62 samples are shown (two samples per ethnic group; 1,891 data points).
+</figcaption>
+</figure>
+</div>
+<p>The bottom line is that in general, two people from anywhere outside of Africa are more genetically similar to each other than two people from within Africa. And furthermore, diversity on the African continent can be seen as the <em>norm</em>, since the level of similarity between two African individuals and between an African and a non-African is roughly the same. At Bixbio we sometimes express this remarkable fact by saying that <em>from an African perspective, everyone is African.</em></p>
+</section>
+<section id="mutation-and-recombination" class="level3">
+<h3 class="anchored" data-anchor-id="mutation-and-recombination">Mutation and recombination</h3>
+<p>How is it that genomes differ in the first place, and to such varying extents? We’ll continue to explore this in the following sections, but the brief answer is that there are two mechanisms at work: random <strong>mutation</strong>, which introduces new alleles into a DNA sequence, and <strong>recombination</strong>, which mixes existing chromosomes to create new, hybrid ones. Mutations are the ultimate source of new genetic variation (and diversity), but the way in which they are propagated throughout a population is due to recombination.</p>
+<p>Consider again the fact that you have two copies of each chromosome, but that your child only inherits one from you – which one do they get? The marvellous reality is that chromosomes are inherited in a ‘patchwork’ manner: the chromosome 1 that you pass on to your child,<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> for example, is created when your two copies of that chromosome come together and exchange stretches of DNA during recombination, as part of a process called <a href="https://en.wikipedia.org/wiki/Meiosis">meiosis</a>. So each stretch of the chromosome you received from your father matches <em>one</em> of his two copies of that chromosome: one such segment may match the one from his father, while a stretch of DNA further along the same chromosome might match the one from his mother. This means that although your DNA is for all intents and purposes half from your mother and half from your father, it is <a href="https://isogg.org/wiki/Autosomal_DNA_statistics#Company_stats">not necessarily</a> a quarter from each of your grandparents.</p>
+<p>Both mutation and recombination occur randomly, but recombination is more likely to occur at certain ‘hotspots’ throughout the genome <span class="citation" data-cites="hey2004whats">[<a href="#ref-hey2004whats" role="doc-biblioref">5</a>]</span>. Together the two mechanisms ensure that the DNA of every sperm or egg cell is essentially unique. The former might take place on the order of 100 times across the genome, and the latter perhaps once or twice per chromosome <span class="citation" data-cites="milo2015cell">[<a href="#ref-milo2015cell" role="doc-biblioref">6</a>]</span>.</p>
+<p>Over thousands of generations, the ancestral tree of any population group will become incredibly complex,<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> but certain ancestries (and ancestors) will come to dominate the group’s genetics at certain times. Two seemingly contradictory characteristics will arise: on the one hand, the genome of any given individual will contain DNA from essentially all of these ancestries, since they will have mingled and recombined over time. But on the other hand, at the smaller scale – where the DNA has mostly been spared the shuffling effect of recombination – the ancestral genomes will still be intact and distinguishable, along with the mutations that accumulated and differentiated them in the first place.</p>
+<p>On the far more comprehensible time scale of our own lifetimes, this means that although none of us shares a complete genome with anyone else (apart from identical twins), we all share many small <em>segments</em> of DNA with people all over the world – and the set of people we have DNA in common with differs per segment. We are, each one of us, a human mosaic. Because of recombination, the genetic history of a population is imprinted on the genomes of all of its members, not siloed into distinct subgroups. This remarkable fact, you might have realised, means that each of us carries a trace of the history of the human race in our DNA. We just won’t be able to make sense of it without comparing it to the DNA of others.</p>
+<p>The DNA segments mentioned above – the ones shared by many people across a population, or across the world if they are old enough – are the building blocks of genetic diversity. Accordingly, they are called <strong>haplotype blocks</strong>, or <strong>haploblocks</strong> for short. Stated another way, a haplotype block is “a region of the genome with a shared pattern of ancestry” <span class="citation" data-cites="shipilina2023origin">[<a href="#ref-shipilina2023origin" role="doc-biblioref">2</a>]</span>. The simple fact is, as we will see below, that non-African populations have significantly fewer distinct haploblocks than African populations, consistent with the consensus that all of these populations at some point migrated out of Africa, and by doing so underwent evolutionary ‘bottleneck’ events.</p>
+</section>
+</section>
+<section id="the-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="the-statistics">The statistics</h2>
+<p>Rewinding slightly before we look at examples of haploblock variation, it’s worth reiterating that the majority of computational genetics currently doesn’t deal with haplotypes.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Plenty of analysis is done at the individual variant level due to the mechanical, statistical, and computational difficulty of inferring and working with haplotypes. This leads us back to our statistics: how else do the <em>variants</em> in a dataset reflect the underlying diversity?</p>
+<p>One of the most commonly presented statistics used to describe diversity is the number of <em>distinct</em> alleles observed (or ‘discovered’) in a sample population. Variant alleles that have never been seen before are termed <strong>novel</strong>, and are generally used to support the uniqueness or importance of new genomic data. More interesting than alleles that are only found in certain datasets, from our perspective, are those that are found in specific <em>subpopulations</em>. For instance, considering just the 1KGP dataset so as not to inflate the number of African samples, we might report the following statistics based on its 2,504 whole-genome samples:</p>
+<ul>
+<li>The <strong>total number of (distinct) alleles</strong> observed in the dataset: about 272 million alleles across 136 million variant sites (including reference – GRCh38 – alleles). This is influenced by both the size and diversity of the dataset.</li>
+<li>The <strong>fraction of the total allele set found in specific subsets</strong> of the data – for instance based on continental regions. If only the 661 African samples had been sequenced, 49% of the distinct non-reference alleles would have been observed, compared to 29% if only the 503 European samples had been collected. There were 66 million such alleles present in the African subset, compared to 39 million in the European, and 102 million in the combined non-African subset of the data (1,843 samples).</li>
+<li>The <strong>number of alleles that are unique to subsets</strong> of the data: there are 33 million alleles that are <em>only</em> observed in the African subset of the data, for example, compared to 18 million alleles unique to Southern Asia.</li>
+</ul>
+<div id="fig-allele-counts" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-allele-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/2-allele-counts.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-allele-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: Allele-count statistics for geographical subsets of the 1KGP dataset. The panels show, respectively: the number of samples from each region, the total number of non-reference alleles observed in each sample set, and the number of non-reference alleles that are observed <em>only</em> in a given sample set. There are more ‘African’ samples than those from other regions because we have included African American and African Caribbean individuals in this category (<a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> will make it clear why). Note also that the rate of variant discovery slows as the number of samples increases, so the outsized number of African alleles is due more to the region’s diversity than to the number of samples.
+</figcaption>
+</figure>
+</div>
+<p>One can of course go further than this as well: it’s sometimes useful to see the <em>rate</em> at which distinct variants are discovered in a certain dataset, for instance by plotting the number of alleles observed in a sample of 10 individuals, then 50, 100, etc. One would see that genomic data from African ancestries yields more alleles with fewer samples – i.e., at a faster rate. It’s worth noting here though that the majority of genetic (minor) alleles are <em>rare</em>; that is, they only occur in a very small proportion of a population. This means that the rate at which new alleles are discovered decreases as more samples are sequenced.</p>
+<p>These variant/allele statistics make it perfectly clear that African genetics is significantly more diverse than that of <em>any</em> other continent. And for practising researchers these numbers are the important ones – they directly quantify diversity based on the data we get from sequenced DNA. But consider them in isolation: do they make intuitive sense? Do they lead to more questions? For instance, are variant alleles randomly occurring in Africa at a greater rate than elsewhere? (No.) Why are there significant numbers of alleles that are unique to any region, not just Africa? (The accumulation of random mutations through either chance or selection.)</p>
+<p>And then reflect back on the pairwise statistic we introduced earlier: how can it be possible for subpopulations to have so many unique genetic variants, and at the same time for the number of differences between two individuals from that group, or from two groups on different sides of the world, to be roughly the same?</p>
+</section>
+<section id="the-simple-explanation" class="level2">
+<h2 class="anchored" data-anchor-id="the-simple-explanation">The simple explanation</h2>
+<p>This explanation has of course been anything but simple so far, but as with most science<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> its individual pieces are relatively easy to grasp, and understanding the concept as a whole mostly involves placing the pieces in logical order. So let’s recap:</p>
+<ol type="1">
+<li>Our genomes are made up of 23 pairs of chromosomes (plus some mitochondrial DNA).</li>
+<li>Each <em>individual</em> chromosome is inherited from one of your parents, and is a unique (re)combination of your grandparents’ chromosomes along with a small amount of random variation.</li>
+<li>Over many generations, ancestral genomes will spread throughout the population as small segments, meaning that your DNA is made up of stretches that are shared with many other people. These stretches of DNA are haplotype blocks, and they can theoretically be used to give a high-level description of all of the possible genomes in the population.</li>
+<li>Haplotype blocks are also the vehicles of genetic diversity: <em>they represent the different forms that a certain region of DNA can take</em>, and the number of possible haplotypes is directly coupled with the level of diversity in a population.</li>
+</ol>
+<p>How does this explain the difference between African and non-African genetics at the statistical level? As a group of people separates from a population, it takes with it only those haplotypes present in the group, and any new variation added to the two groups’ genetic pools is no longer shared between them. Note also that recombinations between similar haplotypes don’t serve to deepen diversity in the way that diverse recombinations do. This is the case with populations outside of Africa: they have fewer distinct haplotypes, and a relatively small amount of variation of their own. (The theorised <a href="https://en.wikipedia.org/wiki/Recent_African_origin_of_modern_humans">out-of-Africa</a> migrations <span class="citation" data-cites="rito2019dispersal">[<a href="#ref-rito2019dispersal" role="doc-biblioref">7</a>]</span> didn’t take place that long ago on the anthropological timescale after all.) These populations all exhibit a similar <em>subset</em> of the haplotype variation still present in Africa, and as such they are less genetically diverse than African populations. This essentially answers the two main questions posed above, namely:</p>
+<ul>
+<li><p>Why do genome comparisons involving African individuals yield more allelic differences? One can imagine comparing small blocks of the genomes separately: if either of the genomes come from a population with significantly more possible haplotypes (as is the case in Africa), there is a smaller chance of the haplotypes (and alleles) matching.</p></li>
+<li><p>Why do non-African populations appear similar in spite of their unique variants? Population-specific variants do differentiate global populations, but their effect is slight when compared to the differences due to ancient haplotype diversity. On an evolutionary timescale, we (human beings) have spent far more time acquiring shared variation in Africa than we have acquiring unique variation outside of Africa.</p>
+<!-- A set of, say, 10 million alleles unique to a population group might be enough to
+characterise those individuals, but it is negligible compared to the accumulated
+variation of the entire human race -- especially since the majority of that
+subpopulation's unique variants will be rare. For similar reasons African genomes are
+roughly equally different to both other African and non-African genomes, but as always
+there are likely multiple factors at play: the different numbers of haplotypes,
+varying haplotype frequencies, the effects of recent variation, etc. --></li>
+</ul>
+</section>
+<section id="the-example" class="level2">
+<h2 class="anchored" data-anchor-id="the-example">The example</h2>
+<p>The goal of this article (if you recall) was to demonstrate the difference in genetic diversity inside and outside of Africa, and as we just mentioned above, haplotype blocks are well suited to doing so. So consider a certain section of the human genome: the gene CYP2D6. This gene refers to a region of about 6,000 bp on chromosome 22, roughly 80% of the way along its 50-million bp length. The CYP2D6 gene is of particular interest in genomics because the enzyme it encodes is involved in the metabolism of about 25% of commonly prescribed drugs <span class="citation" data-cites="ingelman2005genetic">[<a href="#ref-ingelman2005genetic" role="doc-biblioref">8</a>]</span>. For the sake of this article it is of no special interest – we could have chosen any region of the genome – but it is worth mentioning that protein-coding regions such as these are thought to be <em>less</em> diverse than the remainder (and majority) of the genome.</p>
+<p>The following visualisations are based on the combined 1KGP/Bixbio dataset of 2,816 individuals. From this data there are 377 observed positions along CYP2D6 where variation occurs, and 377 alleles in total. Of the non-major alleles at these sites, most are infrequent: only 44 occur in more than 1% of the dataset. By clustering the variant call patterns of individual samples, we see a few common <strong>genotypes</strong>: that is, variant calls for both chromosomes for each individual. With a further round of analysis we can then recover the individual haplotypes in each genotype by noting that the alleles observed in each genotype are the <em>union</em> of the two underlying haplotypes’ alleles, and that the true set of haplotypes must ‘sum’ to the genotypes. It’s important to note that, like all statistical inference, this is an <em>approximate</em> process – although in this case the data is relatively easy to make sense of.</p>
+<p>In the end this approach identifies a total of 12 haplotypes in the 5,632 genomes in the data set, across 30 ethnicities. Each haplotype is defined by 6 alleles on average. This of course does not mean that all of the individuals treated as possessing a given copy of CYP2D6 have <em>exactly</em> the same sequence of that gene – the clustering process likely ignores spurious differences such as sequencing errors or very recent mutation – but it is immediately apparent which ancestral ‘version’ of CYP2D6 each individual has.</p>
+<p><a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> shows the fraction of each ethnicity’s samples with a given haplotype (so each row sums to 1). This figure summarises many of the points we’ve made in this article, and hopefully now does so in a more <em>intuitive</em> way than the statistics of previous sections. We see, as expected, that significantly more haplotypes – i.e., versions of the gene – exist in African subpopulations than anywhere else, and that non-African variation is by and large a subset of African variation. The non-African subpopulations share strikingly similar sets of haplotypes, with some divergence in Eastern Asian ethnicities. Compare this figure to <a href="#fig-allele-counts" class="quarto-xref">Figure&nbsp;3</a>: it should now be clear why Africa has more distinct alleles in total, as well as many alleles not found in any other region (presumably from haplotypes unique to Africa).</p>
+<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/2-haplotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;4: Haplotype frequency by ethnicity. Each column represents a CYP2D6 haplotype inferred from the dataset, and each cell in the heatmap shows the fraction of an ethnicity’s samples that have a copy of that haplotype. The values in each row sum to 1.
+</figcaption>
+</figure>
+</div>
+<p>The genotypes present in the dataset can be visualised in the same way, demonstrating how haplotypes might be paired together in different subpopulations. These genotype clusters essentially describe all of the possible versions of CYP2D6 that an individual might have (based on the small sample of healthy individuals in the dataset). We see 25 such genotypes,<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> showing similar patterns to that of the previous figure but slightly obscuring the fact that many genotypes overlap due to shared haplotypes.</p>
+<div id="fig-genotypes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-genotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/2-genotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-genotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;5: Genotype frequency by ethnicity. Each column in the figure corresponds to a pair of haplotypes from <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> as observed in genomes in the dataset. Cells once again represent the fraction of an ethnicity’s samples with a given genotype.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="the-point" class="level2">
+<h2 class="anchored" data-anchor-id="the-point">The point</h2>
+<p>There are essentially three main points here:</p>
+<ul>
+<li>Firstly, that <strong>we all share a common human ancestry</strong>, as told by our DNA. Each of our genomes is a unique combination of haplotypes, but these haplotypes do not ‘belong’ to us – they are shared with many others in the population. Human genetics is dense, complex, and exists as a spectrum, but at the small scale it can still be understood and represented relatively easily.</li>
+<li>Secondly, <strong>Africa is home to significantly more genetic diversity than anywhere else in the world</strong>, and the genetic diversity found elsewhere is essentially a subset of Africa’s. One way to make sense of this is simply to understand that for any region in the genome, the number of distinct haplotypes found in Africa is greater than the number found anywhere else; as ancient people groups migrated out of Africa, they took with them only a subset of African haplotype diversity.</li>
+<li>And thirdly, <strong>diversity matters</strong>. To understand global genomics, we need to understand genetic diversity, and to understand diversity we need to understand African genetics.</li>
+</ul>
+<p>This third point is one that we haven’t touched on directly yet, but as a company it forms the core of our vision. Genomic medicine is already relatively commonplace in developed countries, and it will only become more so – in all likelihood quite rapidly. Its applications are varied: a genome might be sequenced in an effort to screen for certain diseases, to diagnose certain genetic conditions, or to predict the risk of a specific individual developing a disease <span class="citation" data-cites="martin2019clinical">[<a href="#ref-martin2019clinical" role="doc-biblioref">9</a>]</span>. On the treatment side, the field of pharmacogenomics studies the impact that genetics has on the safety and efficacy of drugs, and involves tailoring treatment plans to an individual based on their DNA – for instance by predicting which drugs will work best. Gene therapy goes even further, by inserting healthy versions of a gene into a patient’s cells <span class="citation" data-cites="nih2007understanding">[<a href="#ref-nih2007understanding" role="doc-biblioref">10</a>]</span>.</p>
+<p>All of this work relies on sophisticated biological and statistical analyses, since one needs to find associations between genomic features and disease mechanisms. Because of this, modern drug development is now highly dependent on such data. The catch, however – and the reason that articles such as this one, and companies such as Bixbio, are necessary – is that global populations are not equally represented when it comes to such research. Far from it. The most common form of analyses used to look for genetic markers correlated with disease – genome-wide association studies (GWAS) – are heavily skewed towards European data: at the time of writing <em>only 0.2% of all GWAS participant data is estimated to be of African ancestry</em> <span class="citation" data-cites="mills2020gwas">[<a href="https://gwasdiversitymonitor.com/" role="doc-biblioref">GWAS Diversity Monitor</a>, <a href="#ref-mills2020gwas" role="doc-biblioref">11</a>]</span>. This means that predictions and treatments don’t necessarily work as well (or at the very least aren’t as well understood) in non-European populations. In light of the examples above, what comes to mind when you hear this? Does it seem… sensible? How much knowledge, and how many advancements, are we missing out on?</p>
+<p>There are, thankfully, promising efforts to address this imbalance: many public genomic datasets place a high priority on collecting samples from under-represented population groups; graph reference genomes have arisen as a means of reducing the bias introduced by current, linear reference genomes; and valuable research is being done to support the effective presentation and analysis of multi-ancestry genomic data. (See for instance the <a href="https://humanpangenome.org/">HPRC</a>, or <a href="https://gnomad.broadinstitute.org/news/2023-11-genetic-ancestry/">gnomAD</a>). But the problem does still remain – and at least in the case of GWAS is only getting worse – due to the fact that almost all DNA sequencing takes place in developed countries.</p>
+<p>Our hope, and goal, is that current efforts to diversify genomic research will gain traction and be able to transform the field, since if one thing is clear it’s that those working in it desire a society in which <em>all</em> individuals have access to genomic medicine of the same quality. And something that should hopefully also be clear by now is that human genetics is a fascinating, inspiring field to work in: our genetic history is simultaneously incredibly diverse and surprisingly transparent. Perhaps if it was more widely understood all genetic research would start where that shared history does: here in Africa.</p>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<!-- You might have noticed that at no point in this article have we specified the length of
+or number of alleles in a haplotype block, and this has been intentional. Whereas
+haplotypes are defined in terms of a single genome (a haploid genotype), haplotype
+_blocks_ only have meaning in the context of a given population. Practically, the
+haploblocks that we observe in a dataset might change as more data is added -- we might
+realise that a set of alleles that we considered a shared haplotype are in fact the
+superposition of two separate haplotypes. Fortunately we _are_ dealing with a specific
+set of samples here, and we have chosen a relatively short stretch of DNA, so when we
+refer to haplotype blocks below we simply mean "common haplotypes" at some reasonable
+level of sensitivity. Haploblocks such as these -- perhaps ten thousand base-pairs in
+length and involving a few or a few tens of alleles -- could be considered typical, and
+aren't complicated by recombination hotspots, large variants, etc. -->
+<p>The input of a few colleagues has been invaluable both in performing the analysis outlined here and in discussing and editing the article: thank you to the Bixbio team – James Ross, Tyronne McCrindle, and Pieter Ross – as well as to Jon Ambler<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a> and Caroline Foden<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> for all of their help.</p>
+<!-- - 'Under neutral models larger, more stable populations are less impacted by genetic
+  drift and thus harbour greater neutral genetic variation compared to small ones, but
+  this does not adequately explain variation in genetic diversity'
+  [here](https://www.sciencedirect.com/topics/neuroscience/genetic-variation)
+- Genetic drift erodes genetic diversity, more so in smaller populations. (The fact that
+  we all have common ancestors, in our shared family tree most branches tend to die out,
+  and over long periods single branches dominate. If you go back far enough the majority
+  of the current population will come from the same branch, and ultimately the same
+  ancestor.)
+- Small, gradual mutations.
+- Large, impactful recombinations.
+- You're not either similar to someone or different to them: _every small part of your
+  genome is_, and the cumulative effect is remarkably predictable. On the small scale
+  though, you _are_ different.
+- About 1000 de novo mutations per generation and a [couple of
+  recombinations](https://book.bionumbers.org/what-is-the-rate-of-recombination) per
+  chromosome.
+
+- How can I have so much in common (clearly, and ancestrally) with my own ethnic group,
+  and seemingly so little with another, and the statistics say that I'm equally
+  genetically similar to both?
+- You might think: the more recent our common ancestor is the more we have in common.
+  The further apart our branches are on the genetic family tree, the more different we
+  are. That's to some extent true (immediate family) -- each of us has two parents after
+  all, and each of them, etc. We are related to each other via many different paths, and
+  only some of those paths have to do with recent generations. Each of these shared
+  ancestries leave their mark on our genomes, and your combination is what makes you
+  unique.
+- Closer implies more in common. Not so – are actually many paths, and each path leaves
+  its mark. How so? Well you have two copies of each chromosome after all, but you only
+  pass one on to your child. If you simply passed one (chrX and mDNA) of the two on,
+  most of these familial paths would have no impact, and you would be able to trace the
+  chromosomes path arbitrarily far back, but you don't: you pass on a combination of the
+  two. This means that every generation -- every reproduction -- recombines two
+  chromosomes into a new one -- literally new. Some of these inherited segments of your
+  chromosome will match someone else's (because of a certain common ancestry), and in
+  fact each of them will match _many_ other individuals of that ancestry. Unless, of
+  course, a mutation has occurred on your ancestral branch and given rise to a _new_
+  block of DNA in this region. A haplotype block is such a region: one with some form of
+  shared ancestry. The haplotypes are the different sequences of DNA that might appear
+  in this region (generally differentiated by just a few small alleles). -->
+<!-- - Genotyping arrays are based on _known_ haplotypes -->
+<!-- - sister example: percents; (not-shared sequences probably already similar) -->
+<!-- - next generation: more blocks, but shorter: complicated by mate's parents' chromosomes
+  and two generations' worth of recombination events -->
+<!-- - the recombinations/mutations that make you 'you' are irrelevant: they more than likely
+  won't affect the diversity of your population. Somewhere though, someone's have, and
+  their recombination is now seen as a block of DNA that is shared by a whole fraction
+  of the population. (Due to many factors: we don't have the time -- nor I the expertise
+  -- to explain how). -->
+<!-- - Your DNA has stretches that are shared with many other people in the population. The
+  stretch preceding it will be shared with a subset of the population as well, perhaps
+  overlapping the first fraction. And so on. These stretches of DNA that are
+  identifiable across many individuals are the haploblocks, and apart from more recent
+  mutation, they _describe_ the genomes in the population. -->
+<!-- - takeaway: when looking at a section of the genome (say, a gene[^gene]), there are only
+  _a small number of different forms that the DNA in that region can take_. More diverse
+  <=> more forms. Not variants; haploblocks. There may be small-scale differences
+  (recent mutations or sequencing errors), but the underlying haplotypes are
+  discernable. -->
+<!-- - "haplotype block" (regions that haven't been recombined, and have an unambiguous
+  ancestry tree?). Haplotype conveys no ancestral meaning; haploblock does. -->
+<!-- - Blocks need to be inferred from sequenced DNA, and we can only base our inferences on
+  observed variant alleles. If two similar sequences were recombined, for instance, we
+  might not be able to tell the recombined sequence apart from the two original
+  sequences: this means that less diverse populations will _appear_ to have larger
+  haploblocks, and more diverse populations smaller haploblocks. The biological process
+  is the same, but its observable effect differs. -->
+<!-- - A haplotype block could be drawn as a two-dimensional shape (genomic position and
+  time), showing how a region of the genome is repeatedly 'cut' as one traces a
+  _specific_ path from one individual to one of their ancestors. -->
+
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-tucci2019long" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Tucci S, Akey JM. The long walk to <span>A</span>frican genomics. Genome Biology. 2019;20. Available: <a href="https://doi.org/10.1186/s13059-019-1740-1">https://doi.org/10.1186/s13059-019-1740-1</a></div>
+</div>
+<div id="ref-shipilina2023origin" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">Shipilina D, Pal A, Stankowski S, Chan YF, Barton NH. On the origin and structure of haplotype blocks. Molecular Ecology. 2023;32: 1441–1457. Available: <a href="https://doi.org/10.1111/mec.16793">https://doi.org/10.1111/mec.16793</a></div>
+</div>
+<div id="ref-byrska2022high" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Byrska-Bishop M, Evani US, Zhao X, Basile AO, Abel HJ, Regier AA, et al. High-coverage whole-genome sequencing of the expanded 1000 <span>G</span>enomes <span>P</span>roject cohort including 602 trios. Cell. 2022;185: 3426–3440. Available: <a href="https://doi.org/10.1016/j.cell.2022.08.004">https://doi.org/10.1016/j.cell.2022.08.004</a></div>
+</div>
+<div id="ref-constantinescu2022framework" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Constantinescu A-E, Mitchell RE, Zheng J, Bull CJ, Timpson NJ, Amulic B, et al. A framework for research into continental ancestry groups of the UK <span>B</span>iobank. Human Genomics. 2022;16. Available: <a href="https://doi.org/10.1186/s40246-022-00380-5">https://doi.org/10.1186/s40246-022-00380-5</a></div>
+</div>
+<div id="ref-hey2004whats" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Hey J. What’s so hot about recombination hotspots? PLoS Biology. 2004;2. Available: <a href="https://doi.org/10.1371/journal.pbio.0020190">https://doi.org/10.1371/journal.pbio.0020190</a></div>
+</div>
+<div id="ref-milo2015cell" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">Milo R, Phillips R. Cell biology by the numbers. Garland Science; 2015. Available: <a href="https://book.bionumbers.org/">https://book.bionumbers.org/</a></div>
+</div>
+<div id="ref-rito2019dispersal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Rito T, Vieira D, Silva M, Conde-Sousa E, Pereira L, Mellars P, et al. A dispersal of <span>H</span>omo sapiens from southern to eastern <span>A</span>frica immediately preceded the out-of-<span>A</span>frica migration. Scientific Reports. 2019;9. Available: <a href="https://doi.org/10.1038/s41598-019-41176-3">https://doi.org/10.1038/s41598-019-41176-3</a></div>
+</div>
+<div id="ref-ingelman2005genetic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Ingelman-Sundberg M. Genetic polymorphisms of cytochrome P450 2D6 (CYP2D6): Clinical consequences, evolutionary aspects and functional diversity. The pharmacogenomics journal. 2005;5: 6–13. Available: <a href="https://doi.org/10.1038/sj.tpj.6500285">https://doi.org/10.1038/sj.tpj.6500285</a></div>
+</div>
+<div id="ref-martin2019clinical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Martin AR, Kanai M, Kamatani Y, Okada Y, Neale BM, Daly MJ. Clinical use of current polygenic risk scores may exacerbate health disparities. Nature Genetics. 2019;51: 584–591. Available: <a href="https://doi.org/10.1038/s41588-019-0379-x">https://doi.org/10.1038/s41588-019-0379-x</a></div>
+</div>
+<div id="ref-nih2007understanding" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">National Institutes of Health (US). Understanding human genetic variation. 2007. Available: <a href="https://www.ncbi.nlm.nih.gov/books/NBK20363/">https://www.ncbi.nlm.nih.gov/books/NBK20363/</a></div>
+</div>
+<div id="ref-mills2020gwas" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Mills MC, Rahal C. The GWAS <span>D</span>iversity <span>M</span>onitor tracks diversity by disease in real time. Nature Genetics. 2020;52: 242–243. Available: <a href="https://doi.org/10.1038/s41588-020-0580-y">https://doi.org/10.1038/s41588-020-0580-y</a></div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Do you? See <span class="citation" data-cites="shipilina2023origin">[<a href="#ref-shipilina2023origin" role="doc-biblioref">2</a>]</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is simply due to the fact that the DNA is sequenced as small ‘reads’ that must then be pieced together, and two positions have to be spanned by a single read for their alleles to be phased. There are statistical approaches to solving this problem. Newer, long-read technology also addresses this issue, but has shortcomings of its own.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>There will of course be populations that exist in between these two extremes, as mentioned above. But in general this stark difference holds.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The non-sex chromosomes are numbered from 1 to 22.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>And ‘tree’ is actually a misnomer here, since you are related to anyone else via many different paths of possibly very different lengths. These paths can also merge or split in ways that a tree structure wouldn’t: e.g., you’re related to your maternal cousin via your grandmother, but also via a much longer route through your father and another common ancestor.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>A <strong>haplotype</strong>, in this context, is a stretch of an <em>individual’s</em> genome that has been resolved and determined to come from a single copy of one of their chromosomes, i.e., a set of variants that have been inherited together. The term ‘haplotype block’ refers to the shared inheritance of such a region within a population.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Quantum physics aside.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>How many would you have expected to see? Given 12 distinct haplotypes, there are in theory 144 possible pairings.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>At <a href="https://www.bit.bio/">bit.bio</a>.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>At the <a href="https://www.up.ac.za/institute-for-cellular-and-molecular-medicine">Institute of Cellular and Molecular Medicine</a>, University of Pretoria.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 BixBio Ltd</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
