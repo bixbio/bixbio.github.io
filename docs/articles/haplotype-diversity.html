@@ -56,7 +56,6 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -215,7 +214,7 @@ div.csl-indent {
 
 
 <section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<h2 data-anchor-id="introduction">Introduction</h2>
 <p>At Bixbio we work with the most diverse genomic data, all of the time, and we believe that diversity is the most important differentiator in both genetic research and its practical applications. So one might expect that we’d be very good at explaining <em>why</em> we care about genetic diversity,&nbsp;and even more fundamentally, <em>what</em> genetic diversity is. But the truth is that genetic diversity isn’t just one simple concept, and this means that it’s often talked about in ways that might not make intuitive sense, using broad strokes or impressive but opaque statistics. A proper explanation requires a small amount of patience – and a decent amount of good-quality data.</p>
 <p>The goal of this post is to attempt to provide such an explanation, highlighting the importance of African data along the way – the two are almost inseparable after all, given that Africa “harbours more genetic diversity” than any other continent <span class="citation" data-cites="tucci2019long">[<a href="#ref-tucci2019long" role="doc-biblioref">1</a>]</span>. Here we’ll try to unpack what that means.</p>
 <p>This topic lies at the heart of what we do at Bixbio: developing tools to analyse diverse genomic data as accurately and powerfully as possible. Much of that work is statistical in nature (I am a mathematician/computer scientist by training), and the content of this article reflects as much. While an effort has been made to be clear and thorough when explaining biological concepts, the intention here is not to provide a complete lesson in human or population genetics – for that one should find a good textbook.</p>
@@ -237,17 +236,17 @@ haplotype blocks usually are, or when global populations are believed to have mi
 out of Africa, for example. -->
 </section>
 <section id="the-basics" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="the-basics">The basics</h2>
+<h2 data-anchor-id="the-basics">The basics</h2>
 <p>Starting at the beginning: each of us inherits 23 chromosomes from each of our parents, giving us 23 <em>pairs</em> of chromosomes, one of which is a pair of sex chromosomes – XX or XY. The <strong>genome</strong> refers to an individual’s complete set of DNA, made up of their chromosomes and a small amount of mitochondrial DNA inherited from their mother. DNA is made up of four <strong>nucleotides</strong> (represented by As, Cs, Gs, and Ts), and the ‘length’ of the human genome measured in nucleotides is around 6.2 billion <strong>base-pairs</strong> (<strong>bp</strong>) – about 3.1 billion bp per set of chromosomes.</p>
 <p>If you consider any two individuals, the vast majority of their genomes will be the same – they’ll have about 99.9% of their DNA in common. But this doesn’t mean that 99.9% of the human genome is <em>fixed</em>, or common to everyone. Rather, there are millions of positions along the genome where variation can occur, and this variation can take different forms: it could involve a change to a single nucleotide (so-called single-nucleotide variants, or SNVs); sequences in which a few nucleotides are ‘inserted’ or ‘deleted’ relative to one another (indels); or large-scale differences in the DNA sequence (structural variants, commonly defined as involving more than 50 bp). Generally, about 80% of the differences between two genomes are SNVs.</p>
 <p>Regardless of length, the known possibilities at any given position are referred to as <strong>alleles</strong>. Most variant positions will only have two possible alleles, and one allele (the ‘major’ allele) will often be far more common than the others. For the sake of illustration, a hypothetical pair of sequences involving a single-nucleotide variant might look something like the following: <em>A<strong>A</strong>TTT</em> and <em>A<strong>C</strong>TTT</em>. In this case the variant’s alleles are <em><strong>A</strong></em> and <em><strong>C</strong></em>. Sequences implying an indel might be <em>GTGTGT</em> and <em>GTGT<strong>GT</strong>GT</em>, in which case the alleles could be defined as <em>T</em> and <em>T<strong>GT</strong></em>.</p>
 <p>Since each of us has two ‘copies’ of each non-sex chromosome, we also have two alleles at each position where variation is known to occur. Once DNA has been sequenced (hardware) and analysed (software), we end up with what are known as <strong>variant calls</strong>: records that give the likelihood of a genome containing a variant allele on one or both strands of DNA – known as heterozygosity and homozygosity respectively. One of the difficulties when using short-read DNA sequencing (the most common technology) is that it is in general not possible to ‘phase’ alleles across positions, separating alleles of the maternal chromosome from those of the paternal one, and thereby reconstructing the individual chromosomes.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> This is not a critical issue, since a lot of genomic analysis occurs at the single-variant level, but it will be important in understanding later sections of this article. It explains too why so many statistics in genomics are currently expressed in terms of simple variant counts, even though variants are <em>not</em> the most natural way to think about genetic diversity; and doing so can, at times (or without proper context), be somewhat confusing.</p>
 <section id="population-groups" class="level3 page-columns page-full">
-<h3 class="anchored" data-anchor-id="population-groups">Population groups</h3>
+<h3 data-anchor-id="population-groups">Population groups</h3>
 <p>Given two individual genomes then, the ‘99.9% similar’ statistic stated above comes from the fact that the first will differ from the second by about 5–7 million alleles. We say 5 <em>to</em> 7 million because it depends very much on who the two individuals are. And this is where things get interesting.</p>
 <p>The 1000 Genomes Project <span class="citation" data-cites="byrska2022high">[<a href="#ref-byrska2022high" role="doc-biblioref">3</a>]</span>, or 1KGP, is one of the most important datasets in genomics. And like all other genomic datasets, databases, and biobanks, it stratifies its data at multiple levels. The most important of these is <em>ethnicity</em>, i.e., ethno-linguistic groups such as Han Chinese, Gujarati Indian, Toscani Italian, etc. The 1KGP dataset is an incredible achievement and resource, but when viewed at this level it is clear that it represents only a small slice of global genetics: its 26 ethnicities from 21 countries account for just a fraction of all of human diversity.</p>
 <div class="page-columns page-full">
-<div id="fig-geography" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<div id="fig-geography" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
 <img src="figures/2-geographical.svg" class="img-fluid figure-img column-body-outset" style="width:100.0%">
@@ -261,7 +260,7 @@ Figure&nbsp;1: The approximate geographical locations at which the 1KGP and Bixb
 <p>The 1KGP data is often grouped at higher levels as well, for instance into five continental regions: Sub-Saharan Africa, Latin America, Eastern Asia, Southern Asia, and Europe. The difficulty with such groupings is immediately apparent: what about Northern Africa, the Middle East, etc.? Which parts of Europe are represented? (Britain, Finland, Spain, and Italy.) Does Sub-Saharan Africa include Southern Africa? (No.)</p>
 <p>And more importantly, does it even make sense to talk about different ‘groups’ of humans? The answer to this is both yes and no: yes, because if two groups of people don’t cross paths for long periods of time their genetics will reflect this – we will be able to predict which group an individual belongs to by looking at inherited patterns in their genome. And no, because <em>human genetics exists as a spectrum</em> <span class="citation" data-cites="constantinescu2022framework">[<a href="#ref-constantinescu2022framework" role="doc-biblioref">4</a>]</span>. The fact that it often <em>looks</em> as though it can be partitioned into neat categories is due to the difficulty of collecting genomic data – of course sampled individuals from Western Africa and Eastern Asia will have noticeably different ancestry. But for every two seemingly distinguishable groups of people, we’ll almost certainly be able to find a group that lies in between and bridges the genetic gap. This is not to say that there is a problem with the 1KGP or any other dataset, but simply a reminder that those of us who make use of such datasets have a responsibility to represent them with fidelity.</p>
 <p>Disclaimer aside, the truth is that continental groupings <em>are</em> useful for genetic analyses, since they are naturally intertwined with the migrations of ancient human populations, and therefore with human evolution and genetic diversity. In what ways do we see this? Well for one (returning to the example above): the genomes of two individuals sampled from Europe, Asia, or the Americas will differ by roughly 5 million alleles across perhaps 4.5 million variant positions. This is the case if the individuals are of the same ethnicity (but not close relatives), or if they come from opposite ends of the world. If one (or both) of those individuals were from <em>Africa</em>, however, the difference would be significantly greater: around 6.5 million alleles across 5.5 million positions. Two individuals from, say, a Zulu population in South Africa will have at least 6 million allelic differences – as will a Zulu and Luhya (Kenyan) pair, and a Zulu and Dai (Chinese) pair, and a Luhya and Toscani (Italian) pair. If neither individual is of African ancestry, however, there will be about 20% less genetic variation: between two Toscani individuals, say, or Toscani and Finnish, Finnish and Gujarati (Indian), etc.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<div id="fig-pairwise" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-pairwise" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/2-pairwise-distance.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -274,7 +273,7 @@ Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at
 <p>The bottom line is that in general, two people from anywhere outside of Africa are more genetically similar to each other than two people from within Africa. And furthermore, diversity on the African continent can be seen as the <em>norm</em>, since the level of similarity between two African individuals and between an African and a non-African is roughly the same. At Bixbio we sometimes express this remarkable fact by saying that <em>from an African perspective, everyone is African.</em></p>
 </section>
 <section id="mutation-and-recombination" class="level3">
-<h3 class="anchored" data-anchor-id="mutation-and-recombination">Mutation and recombination</h3>
+<h3 data-anchor-id="mutation-and-recombination">Mutation and recombination</h3>
 <p>How is it that genomes differ in the first place, and to such varying extents? We’ll continue to explore this in the following sections, but the brief answer is that there are two mechanisms at work: random <strong>mutation</strong>, which introduces new alleles into a DNA sequence, and <strong>recombination</strong>, which mixes existing chromosomes to create new, hybrid ones. Mutations are the ultimate source of new genetic variation (and diversity), but the way in which they are propagated throughout a population is due to recombination.</p>
 <p>Consider again the fact that you have two copies of each chromosome, but that your child only inherits one from you – which one do they get? The marvellous reality is that chromosomes are inherited in a ‘patchwork’ manner: the chromosome 1 that you pass on to your child,<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> for example, is created when your two copies of that chromosome come together and exchange stretches of DNA during recombination, as part of a process called <a href="https://en.wikipedia.org/wiki/Meiosis">meiosis</a>. So each stretch of the chromosome you received from your father matches <em>one</em> of his two copies of that chromosome: one such segment may match the one from his father, while a stretch of DNA further along the same chromosome might match the one from his mother. This means that although your DNA is for all intents and purposes half from your mother and half from your father, it is <a href="https://isogg.org/wiki/Autosomal_DNA_statistics#Company_stats">not necessarily</a> a quarter from each of your grandparents.</p>
 <p>Both mutation and recombination occur randomly, but recombination is more likely to occur at certain ‘hotspots’ throughout the genome <span class="citation" data-cites="hey2004whats">[<a href="#ref-hey2004whats" role="doc-biblioref">5</a>]</span>. Together the two mechanisms ensure that the DNA of every sperm or egg cell is essentially unique. The former might take place on the order of 100 times across the genome, and the latter perhaps once or twice per chromosome <span class="citation" data-cites="milo2015cell">[<a href="#ref-milo2015cell" role="doc-biblioref">6</a>]</span>.</p>
@@ -284,7 +283,7 @@ Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at
 </section>
 </section>
 <section id="the-statistics" class="level2">
-<h2 class="anchored" data-anchor-id="the-statistics">The statistics</h2>
+<h2 data-anchor-id="the-statistics">The statistics</h2>
 <p>Rewinding slightly before we look at examples of haploblock variation, it’s worth reiterating that the majority of computational genetics currently doesn’t deal with haplotypes.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> Plenty of analysis is done at the individual variant level due to the mechanical, statistical, and computational difficulty of inferring and working with haplotypes. This leads us back to our statistics: how else do the <em>variants</em> in a dataset reflect the underlying diversity?</p>
 <p>One of the most commonly presented statistics used to describe diversity is the number of <em>distinct</em> alleles observed (or ‘discovered’) in a sample population. Variant alleles that have never been seen before are termed <strong>novel</strong>, and are generally used to support the uniqueness or importance of new genomic data. More interesting than alleles that are only found in certain datasets, from our perspective, are those that are found in specific <em>subpopulations</em>. For instance, considering just the 1KGP dataset so as not to inflate the number of African samples, we might report the following statistics based on its 2,504 whole-genome samples:</p>
 <ul>
@@ -292,7 +291,7 @@ Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at
 <li>The <strong>fraction of the total allele set found in specific subsets</strong> of the data – for instance based on continental regions. If only the 661 African samples had been sequenced, 49% of the distinct non-reference alleles would have been observed, compared to 29% if only the 503 European samples had been collected. There were 66 million such alleles present in the African subset, compared to 39 million in the European, and 102 million in the combined non-African subset of the data (1,843 samples).</li>
 <li>The <strong>number of alleles that are unique to subsets</strong> of the data: there are 33 million alleles that are <em>only</em> observed in the African subset of the data, for example, compared to 18 million alleles unique to Southern Asia.</li>
 </ul>
-<div id="fig-allele-counts" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-allele-counts" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-allele-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/2-allele-counts.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
@@ -307,7 +306,7 @@ Figure&nbsp;3: Allele-count statistics for geographical subsets of the 1KGP data
 <p>And then reflect back on the pairwise statistic we introduced earlier: how can it be possible for subpopulations to have so many unique genetic variants, and at the same time for the number of differences between two individuals from that group, or from two groups on different sides of the world, to be roughly the same?</p>
 </section>
 <section id="the-simple-explanation" class="level2">
-<h2 class="anchored" data-anchor-id="the-simple-explanation">The simple explanation</h2>
+<h2 data-anchor-id="the-simple-explanation">The simple explanation</h2>
 <p>This explanation has of course been anything but simple so far, but as with most science<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> its individual pieces are relatively easy to grasp, and understanding the concept as a whole mostly involves placing the pieces in logical order. So let’s recap:</p>
 <ol type="1">
 <li>Our genomes are made up of 23 pairs of chromosomes (plus some mitochondrial DNA).</li>
@@ -329,12 +328,12 @@ varying haplotype frequencies, the effects of recent variation, etc. --></li>
 </ul>
 </section>
 <section id="the-example" class="level2">
-<h2 class="anchored" data-anchor-id="the-example">The example</h2>
+<h2 data-anchor-id="the-example">The example</h2>
 <p>The goal of this article (if you recall) was to demonstrate the difference in genetic diversity inside and outside of Africa, and as we just mentioned above, haplotype blocks are well suited to doing so. So consider a certain section of the human genome: the gene CYP2D6. This gene refers to a region of about 6,000 bp on chromosome 22, roughly 80% of the way along its 50-million bp length. The CYP2D6 gene is of particular interest in genomics because the enzyme it encodes is involved in the metabolism of about 25% of commonly prescribed drugs <span class="citation" data-cites="ingelman2005genetic">[<a href="#ref-ingelman2005genetic" role="doc-biblioref">8</a>]</span>. For the sake of this article it is of no special interest – we could have chosen any region of the genome – but it is worth mentioning that protein-coding regions such as these are thought to be <em>less</em> diverse than the remainder (and majority) of the genome.</p>
 <p>The following visualisations are based on the combined 1KGP/Bixbio dataset of 2,816 individuals. From this data there are 377 observed positions along CYP2D6 where variation occurs, and 377 alleles in total. Of the non-major alleles at these sites, most are infrequent: only 44 occur in more than 1% of the dataset. By clustering the variant call patterns of individual samples, we see a few common <strong>genotypes</strong>: that is, variant calls for both chromosomes for each individual. With a further round of analysis we can then recover the individual haplotypes in each genotype by noting that the alleles observed in each genotype are the <em>union</em> of the two underlying haplotypes’ alleles, and that the true set of haplotypes must ‘sum’ to the genotypes. It’s important to note that, like all statistical inference, this is an <em>approximate</em> process – although in this case the data is relatively easy to make sense of.</p>
 <p>In the end this approach identifies a total of 12 haplotypes in the 5,632 genomes in the data set, across 30 ethnicities. Each haplotype is defined by 6 alleles on average. This of course does not mean that all of the individuals treated as possessing a given copy of CYP2D6 have <em>exactly</em> the same sequence of that gene – the clustering process likely ignores spurious differences such as sequencing errors or very recent mutation – but it is immediately apparent which ancestral ‘version’ of CYP2D6 each individual has.</p>
 <p><a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> shows the fraction of each ethnicity’s samples with a given haplotype (so each row sums to 1). This figure summarises many of the points we’ve made in this article, and hopefully now does so in a more <em>intuitive</em> way than the statistics of previous sections. We see, as expected, that significantly more haplotypes – i.e., versions of the gene – exist in African subpopulations than anywhere else, and that non-African variation is by and large a subset of African variation. The non-African subpopulations share strikingly similar sets of haplotypes, with some divergence in Eastern Asian ethnicities. Compare this figure to <a href="#fig-allele-counts" class="quarto-xref">Figure&nbsp;3</a>: it should now be clear why Africa has more distinct alleles in total, as well as many alleles not found in any other region (presumably from haplotypes unique to Africa).</p>
-<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/2-haplotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
@@ -345,7 +344,7 @@ Figure&nbsp;4: Haplotype frequency by ethnicity. Each column represents a CYP2D6
 </figure>
 </div>
 <p>The genotypes present in the dataset can be visualised in the same way, demonstrating how haplotypes might be paired together in different subpopulations. These genotype clusters essentially describe all of the possible versions of CYP2D6 that an individual might have (based on the small sample of healthy individuals in the dataset). We see 25 such genotypes,<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> showing similar patterns to that of the previous figure but slightly obscuring the fact that many genotypes overlap due to shared haplotypes.</p>
-<div id="fig-genotypes" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center">
+<div id="fig-genotypes" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-genotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/2-genotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
@@ -357,7 +356,7 @@ Figure&nbsp;5: Genotype frequency by ethnicity. Each column in the figure corres
 </div>
 </section>
 <section id="the-point" class="level2">
-<h2 class="anchored" data-anchor-id="the-point">The point</h2>
+<h2 data-anchor-id="the-point">The point</h2>
 <p>There are essentially three main points here:</p>
 <ul>
 <li>Firstly, that <strong>we all share a common human ancestry</strong>, as told by our DNA. Each of our genomes is a unique combination of haplotypes, but these haplotypes do not ‘belong’ to us – they are shared with many others in the population. Human genetics is dense, complex, and exists as a spectrum, but at the small scale it can still be understood and represented relatively easily.</li>
@@ -370,7 +369,7 @@ Figure&nbsp;5: Genotype frequency by ethnicity. Each column in the figure corres
 <p>Our hope, and goal, is that current efforts to diversify genomic research will gain traction and be able to transform the field, since if one thing is clear it’s that those working in it desire a society in which <em>all</em> individuals have access to genomic medicine of the same quality. And something that should hopefully also be clear by now is that human genetics is a fascinating, inspiring field to work in: our genetic history is simultaneously incredibly diverse and surprisingly transparent. Perhaps if it was more widely understood all genetic research would start where that shared history does: here in Africa.</p>
 </section>
 <section id="acknowledgements" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<h2 data-anchor-id="acknowledgements">Acknowledgements</h2>
 <!-- You might have noticed that at no point in this article have we specified the length of
 or number of alleles in a haplotype block, and this has been intentional. Whereas
 haplotypes are defined in terms of a single genome (a haploid genotype), haplotype
@@ -530,13 +529,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -939,7 +931,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2024 BixBio Ltd</p>
+<p>© 2024 Bixbio Ltd</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;

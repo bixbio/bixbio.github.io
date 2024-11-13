@@ -56,7 +56,6 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
@@ -156,7 +155,18 @@ div.csl-indent {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#perspective" id="toc-perspective" class="nav-link" data-scroll-target="#perspective">Perspective</a></li>
+  <li><a href="#the-bixbio-dataset" id="toc-the-bixbio-dataset" class="nav-link" data-scroll-target="#the-bixbio-dataset">The Bixbio dataset</a></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access">Data access</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content">
@@ -198,11 +208,11 @@ div.csl-indent {
 
 
 <section id="introduction" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<h2 data-anchor-id="introduction">Introduction</h2>
 <p>As part of the <a href="https://emea.illumina.com/company/illumina-for-startups.html">Illumina Accelerator</a> program for startups in late 2021, Bixbio collected and sequenced the genomes of 750 Southern African individuals over the course of a few weeks. Just over half of this data forms the <strong>Bixbio South African Reference</strong> dataset: 397 whole-genome samples from healthy individuals with African or admixed-African ancestry, across 8 South African ethno-linguistic groups. It is to our knowledge the largest genomic dataset from Southern Africa.</p>
 <p>This reference data has been at the core of Bixbio’s research and development since its creation, both internally as we work to unlock the power of diverse genomic data, and externally in support of local research efforts. The bioinformatics landscape has changed significantly since our first analysis of this dataset, however, and in bringing the reference data up to date Bixbio has recently had the pleasure of collaborating with the DRAGEN team at Illumina, who supported the reanalysis of the 312 highest-coverage samples by providing access to the latest version of the complete DRAGEN and PopGen pipelines <span class="citation" data-cites="behera2024comprehensive">[<a href="#ref-behera2024comprehensive" role="doc-biblioref">1</a>]</span>. Not only have variants of all sizes been called using state-of-the-art techniques – including multi-ethnicity reference genomes designed to reduce bias at the alignment stage of the analysis – but the Bixbio cohort has also been joint-genotyped with the entire 1000 Genomes Project (1KGP) dataset, effectively augmenting the latter with data from Southern African subpopulations (a region which was otherwise unrepresented).</p>
 <p>Together the combined dataset provides a uniquely powerful resource for genomic research in Africa, the most genetically diverse region in the world. It includes 2,816 whole-genome samples, of which 973 are African; and 34 ethnicities, including 15 of recent African descent. A more in-depth look at the diversity of the dataset is presented <a href="haplotype-diversity.html" target="_blank">elsewhere</a>, including illustrative statistics related to genetic diversity at both the allelic and haplotype levels. We reproduce here, in <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;1</a>, a view of the distinct haplotypes observed in the region of the CYP2D6 gene as they occur in samples from different ethnicities, demonstrating one way in which global genetic diversity can to a large extent be viewed as a subset of African diversity.</p>
-<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full" data-fig-align="center">
+<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center page-columns page-full" data-fig-align="center">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/2-haplotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
@@ -214,7 +224,7 @@ Figure&nbsp;1: Haplotype frequency by ethnicity in the combined 1KGP/Bixbio data
 </div>
 </section>
 <section id="perspective" class="level2">
-<h2 class="anchored" data-anchor-id="perspective">Perspective</h2>
+<h2 data-anchor-id="perspective">Perspective</h2>
 <p>The roughly 400 samples present in the Bixbio reference dataset may not seem like much compared to the scope of modern biobanks: the largest repository of genomic data in the world, for instance, is the UK Biobank, which currently consists of around 500,000 whole-genome samples; and the largest resource for aggregate genomic data, gnomAD, includes allele statistics from roughly 76,000 whole genomes. The UK Biobank is primarily made up of data from white individuals – approximately 95.6% of the dataset – alongside a small fraction of black individuals – roughly 1.6% <span class="citation" data-cites="ukbiobank2024ethnic constantinescu2022framework">[<a href="#ref-ukbiobank2024ethnic" role="doc-biblioref">2</a>,<a href="#ref-constantinescu2022framework" role="doc-biblioref">3</a>]</span>. (Recent UK census data reports values of 83.1% and 3.7% for these ethnic groups respectively, for comparison <span class="citation" data-cites="office2024ethnic wikipedia2024demographics">[<a href="#ref-office2024ethnic" role="doc-biblioref">4</a>,<a href="#ref-wikipedia2024demographics" role="doc-biblioref">5</a>]</span>.) On the other hand, gnomAD’s whole-genome dataset is significantly more diverse: although 51.7% of its samples are from European ethnicities (not necessarily white), 27.2% are from African or admixed African groups <span class="citation" data-cites="gnomad2024whats">[<a href="#ref-gnomad2024whats" role="doc-biblioref">6</a>]</span>.</p>
 <p>What does this mean in terms of sample numbers? Well, <em>combined</em>, two of the largest genomic datasets in the world include 28,926 (8,182 + 20,744) whole-genome samples from individuals of African descent. In addition to the fact that this is an alarmingly small number, there are three things to note here:</p>
 <ol type="1">
@@ -225,7 +235,7 @@ Figure&nbsp;1: Haplotype frequency by ethnicity in the combined 1KGP/Bixbio data
 <p>There are two significant, diverse, publicly accessible datasets that are exceptions to some or all of the above points: the 1000 Genomes Project (1KGP <span class="citation" data-cites="byrska2022high">[<a href="#ref-byrska2022high" role="doc-biblioref">13</a>]</span>) and the Human Genome Diversity Project (HGDP <span class="citation" data-cites="bergstrom2020insights">[<a href="#ref-bergstrom2020insights" role="doc-biblioref">14</a>]</span>). Both of these datasets include significant numbers of samples from globally diverse ethnicities, and both are publicly accessible. The 1KGP dataset, too, is consistently reanalysed using up-to-date pipelines (by, for instance, Illumina <span class="citation" data-cites="illumina20241000">[<a href="#ref-illumina20241000" role="doc-biblioref">15</a>]</span>) to ensure that it remains a valuable resource for global genomic research. The 1KGP cohort consists of 2,504 samples (excluding related individuals), of which 661 are of African ancestry (including 157 African American and African Caribbean samples). The HGDP cohort consists of 828 samples, of which 88 are from Africa (6 from Southern Africa). Both of these datasets are included in and contribute to gnomAD’s statistics.</p>
 </section>
 <section id="the-bixbio-dataset" class="level2 page-columns page-full">
-<h2 class="anchored" data-anchor-id="the-bixbio-dataset">The Bixbio dataset</h2>
+<h2 data-anchor-id="the-bixbio-dataset">The Bixbio dataset</h2>
 <p>In this light, the reanalysis of the Bixbio reference dataset in concert with the 1KGP cohort is perhaps more significant: not only does it significantly bolster the number of African genomes available to researchers such as ourselves, but it also provides an unprecedented view of Southern African genetics using the most advanced analysis pipelines possible.</p>
 <div>
 
@@ -233,7 +243,7 @@ Figure&nbsp;1: Haplotype frequency by ethnicity in the combined 1KGP/Bixbio data
 <div class="quarto-layout-panel page-columns page-full" data-layout-nrow="2">
 <div class="quarto-layout-row page-full">
 <div class="quarto-layout-cell page-columns page-full" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-ethnicity-map" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<div id="fig-ethnicity-map" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-ethnicity-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/3-geographical.svg" class="img-fluid figure-img" style="width:100.0%">
@@ -247,7 +257,7 @@ Figure&nbsp;2: Locations at which the African samples included in the 1KGP (oran
 </div>
 <div class="quarto-layout-row page-full">
 <div class="quarto-layout-cell page-columns page-full" style="flex-basis: 100.0%;justify-content: flex-start;">
-<div id="fig-ethnicity-counts" class="quarto-float quarto-figure quarto-figure-center anchored page-columns page-full">
+<div id="fig-ethnicity-counts" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-ethnicity-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="figures/3-ethnicity-counts.svg" class="img-fluid figure-img" style="width:100.0%">
@@ -263,11 +273,11 @@ Figure&nbsp;3: African ethnicities in the 1KGP and Bixbio datasets, along with t
 <p>The size and diversity of the Bixbio dataset should perhaps give one pause: not because of how much additional data it provides (it nearly matches the number of African samples and ethnicities in the 1KGP cohort), but because of what it still fails to capture. South Africa is one of the most diverse countries in the world – it is home to significant subpopulations of African, Indian, white, and coloured<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> ethnicities, and has 11 official spoken languages. While Bixbio’s dataset compares favourably to both the 1KGP and HGDP cohorts in terms of both sample and ethnicity numbers, it doesn’t yet represent the full scope of genetic diversity present in South Africa. And if there remains work to be done in this regard within a single Southern African country, what does that lead us to ask about the road to a truly African (and a truly global) genomic dataset?</p>
 </section>
 <section id="data-access" class="level2">
-<h2 class="anchored" data-anchor-id="data-access">Data access</h2>
+<h2 data-anchor-id="data-access">Data access</h2>
 <p>The Bixbio South African Reference dataset was created to serve as a reference for genetic variation in Southern Africa and beyond, and can in specific circumstances be made available to researchers working on projects that have the potential to positively impact the communities involved (e.g., genetic research related to locally prevalent medical conditions, or the development of tools to improve the accuracy of bioinformatics in Africa). Interested parties should contact the Bixbio team directly.</p>
 </section>
 <section id="acknowledgments" class="level2">
-<h2 class="anchored" data-anchor-id="acknowledgments">Acknowledgments</h2>
+<h2 data-anchor-id="acknowledgments">Acknowledgments</h2>
 <p>Bixbio has been fortunate enough to work with many individuals who are similarly passionate about advancing diversity in genomics. We are extremely to grateful to Illumina, and in particular the DRAGEN team, for their support in creating the dataset described here. The sequencing of the Bixbio samples was made possible thanks to the Illumina Accelerator program in Cambridge, UK, and this combined reanalysis of the 1KGP/Bixbio dataset was again enabled by members of the DRAGEN team. We thank Ursula Arndt, Shyamal Mehtalia, and Rami Mehio in particular.</p>
 
 
@@ -350,13 +360,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const icon = "";
-  const anchorJS = new window.AnchorJS();
-  anchorJS.options = {
-    placement: 'right',
-    icon: icon
-  };
-  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -759,7 +762,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p>© 2024 BixBio Ltd</p>
+<p>© 2024 Bixbio Ltd</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
