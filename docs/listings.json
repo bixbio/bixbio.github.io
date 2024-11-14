@@ -2,8 +2,6 @@
   {
     "listing": "/articles.html",
     "items": [
-      "/articles/laboratory-optimisation.html",
-      "/articles/bixbio-dataset.html",
       "/articles/haplotype-diversity.html"
     ]
   }
