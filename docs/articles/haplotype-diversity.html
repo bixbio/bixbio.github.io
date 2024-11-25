@@ -101,11 +101,11 @@ gtag('config', 'G-9706XPGQ3P', { 'anonymize_ip': true});
 
 <meta property="og:title" content="Haplotype Diversity in Africa – bixbio">
 <meta property="og:description" content="What do we mean when we say that Africa harbours more genetic diversity than any other continent?">
-<meta property="og:image" content="figures/2-haplotype-heatmap.svg">
+<meta property="og:image" content="figures/2-haplotype-heatmap.png">
 <meta property="og:site_name" content="bixbio">
 <meta name="twitter:title" content="Haplotype Diversity in Africa – bixbio">
 <meta name="twitter:description" content="What do we mean when we say that Africa harbours more genetic diversity than any other continent?">
-<meta name="twitter:image" content="figures/2-haplotype-heatmap.svg">
+<meta name="twitter:image" content="figures/2-haplotype-heatmap.png">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -138,6 +138,10 @@ gtag('config', 'G-9706XPGQ3P', { 'anonymize_ip': true});
         <li>
     <a class="dropdown-item" href="../articles/haplotype-diversity.html">
  <span class="dropdown-text">Genetic Diversity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/laboratory-optimisation.html">
+ <span class="dropdown-text">Laboratory Optimisation</span></a>
   </li>  
     </ul>
   </li>
@@ -212,10 +216,13 @@ gtag('config', 'G-9706XPGQ3P', { 'anonymize_ip': true});
 
 <section id="introduction" class="level2">
 <h2 data-anchor-id="introduction">Introduction</h2>
-<p>At Bixbio we work with the most diverse genomic data, all of the time, and we believe that diversity is the most important differentiator in both genetic research and its practical applications. So one might expect that we’d be very good at explaining <em>why</em> we care about genetic diversity,&nbsp;and even more fundamentally, <em>what</em> genetic diversity is. But the truth is that genetic diversity isn’t just one simple concept, and this means that it’s often talked about in ways that might not make intuitive sense, using broad strokes or impressive but opaque statistics. A proper explanation requires a small amount of patience – and a decent amount of good-quality data.</p>
-<p>The goal of this post is to attempt to provide such an explanation, highlighting the importance of African data along the way – the two are almost inseparable after all, given that Africa “harbours more genetic diversity” than any other continent <span class="citation" data-cites="tucci2019long">[<a href="#ref-tucci2019long" role="doc-biblioref">1</a>]</span>. Here we’ll try to unpack what that means.</p>
-<p>We start with a basic description of genetic variation and the mechanisms that give rise to genetic diversity, along with a useful illustration of global diversity from an African perspective. The remainder of the article then works towards a more complete demonstration of genetic diversity by describing how it originates at the haplotype level: we first show the difficulty of effectively describing diversity using genome-wide statistics, and then give an example of the extent of haplotype diversity within a single gene. If you already know what a haplotype block is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> you might choose to skip straight to <a href="#the-example">the end</a>, perhaps skimming the figures along the way.</p>
-<p>This topic lies at the heart of what we do at Bixbio: developing tools to analyse diverse genomic data as accurately and powerfully as possible. Much of that work is statistical in nature (I am a mathematician and computer scientist by training), and the content of this article reflects as much. While an effort has been made to be clear and thorough when explaining biological concepts, the intention here is not to provide a complete lesson in human or population genetics – for that one should find a good textbook.</p>
+<p>At Bixbio we work with the most diverse genomic data, all of the time, and we believe that diversity is the most important differentiator in both genetic research and its practical applications. So one might expect that we’d be very good at explaining <em>why</em> we care about genetic diversity,&nbsp;and even more fundamentally, <em>what</em> genetic diversity is. But the truth is that genetic diversity isn’t just one simple concept, which means that it’s often talked about in ways that might not make intuitive sense, using broad strokes or somewhat opaque statistics. A proper explanation requires a small amount of patience – and a decent amount of good-quality data.</p>
+<p>The goal of this post is to attempt to provide such an explanation for a general audience, highlighting the importance of African data along the way. The two are almost inseparable after all, given that Africa “harbours more genetic diversity” than any other continent <span class="citation" data-cites="tucci2019long">[<a href="#ref-tucci2019long" role="doc-biblioref">1</a>]</span>. Here we’ll try to unpack what that means.</p>
+<p>We start with a basic description of genetic variation and the mechanisms that give rise to genetic diversity, along with a useful illustration of global diversity from an African perspective. The remainder of the article then works towards a more complete demonstration of genetic diversity by describing how it originates at the haplotype level. If you already know what a haplotype block is<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> you might choose to skip straight to <a href="#the-example">the end</a>, perhaps skimming the figures along the way.</p>
+<!-- we first show the difficulty of effectively describing diversity using genome-wide
+statistics, and then give an example of the extent of haplotype diversity within a
+single gene. -->
+<p>This topic lies at the heart of what we do at Bixbio: developing tools to analyse diverse genomic data as accurately and powerfully as possible. Much of that work is statistical in nature (I am a mathematician and computer scientist by training), and the content of this article reflects this. So it’s worth mentioning that although an effort has been made to be clear and thorough when explaining any biological concepts, the primary intention here is not to provide a complete lesson in human or population genetics – for that one should probably find a good textbook.</p>
 <!-- while assuming as little domain knowledge -->
 <!-- Some of these details -- the analysis pipelines used, how haplotype inference was
 performed, etc. -- may end up being the subjects of future articles. -->
@@ -246,7 +253,7 @@ out of Africa, for example. -->
 <div id="fig-geography" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
 <figure class="quarto-float quarto-float-fig figure page-columns page-full">
 <div aria-describedby="fig-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca" class="page-columns page-full">
-<img src="figures/2-geographical.svg" class="img-fluid figure-img column-body-outset" style="width:100.0%">
+<img src="figures/2-geographical.png" class="img-fluid figure-img column-body-outset">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-geography-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;1: The approximate geographical locations at which the 1KGP and Bixbio samples used in this article were collected. The 2,504 1KGP samples are in orange, and the 312 Bixbio samples in blue.
@@ -257,10 +264,10 @@ Figure&nbsp;1: The approximate geographical locations at which the 1KGP and Bixb
 <p>The 1KGP data is often grouped at higher levels as well, for instance into five continental regions: Sub-Saharan Africa, Latin America, Eastern Asia, Southern Asia, and Europe. The difficulty with such groupings is immediately apparent: what about Northern Africa, the Middle East, etc.? Which parts of Europe are represented? (Britain, Finland, Spain, and Italy.) Does Sub-Saharan Africa include Southern Africa? (No.)</p>
 <p>And more importantly, does it even make sense to talk about different ‘groups’ of humans? The answer to this is both yes and no: yes, because if two groups of people don’t cross paths for long periods of time their genetics will reflect this – we will be able to predict which group an individual belongs to by looking at inherited patterns in their genome. And no, because <em>human genetics exists as a spectrum</em> <span class="citation" data-cites="constantinescu2022framework">[<a href="#ref-constantinescu2022framework" role="doc-biblioref">4</a>]</span>. The fact that it often <em>looks</em> as though it can be partitioned into neat categories is due to the difficulty of collecting genomic data – of course sampled individuals from Western Africa and Eastern Asia will have noticeably different ancestry. But for every two seemingly distinguishable groups of people, we’ll almost certainly be able to find a group that lies in between and bridges the genetic gap. This is not to say that there is a problem with the 1KGP or any other dataset, but simply a reminder that those of us who make use of such datasets have a responsibility to represent them with fidelity.</p>
 <p>Disclaimer aside, the truth is that continental groupings <em>are</em> useful for genetic analyses, since they are naturally intertwined with the migrations of ancient human populations, and therefore with human evolution and genetic diversity. In what ways do we see this? Well for one (returning to the example above): the genomes of two individuals sampled from Europe, Asia, or the Americas will differ by roughly 5 million alleles across perhaps 4.5 million variant positions. This is the case if the individuals are of the same ethnicity (but not close relatives), or if they come from opposite ends of the world. If one (or both) of those individuals were from <em>Africa</em>, however, the difference would be significantly greater: around 6.5 million alleles across 5.5 million positions. Two individuals from, say, a Zulu population in South Africa will have at least 6 million allelic differences – as will a Zulu and Luhya (Kenyan) pair, and a Zulu and Dai (Chinese) pair, and a Luhya and Toscani (Italian) pair. If neither individual is of African ancestry, however, there will be about 20% less genetic variation: between two Toscani individuals, say, or Toscani and Finnish, Finnish and Gujarati (Indian), etc.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<div id="fig-pairwise" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<div id="fig-pairwise" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/2-pairwise-distance.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+<img src="figures/2-pairwise-distance.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairwise-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at which two genomes differ (technically autosomes, since sex chromosomes were ignored), grouped by whether both, one, or neither of the individuals are African. Pairwise comparisons for 62 samples are shown (two samples per ethnic group; 1,891 data points).
@@ -288,10 +295,10 @@ Figure&nbsp;2: The number of variant alleles and variant sites, respectively, at
 <li>The <strong>fraction of the total allele set found in specific subsets</strong> of the data – for instance based on continental regions. If only the 661 African samples had been sequenced, 49% of the distinct non-reference alleles would have been observed, compared to 29% if only the 503 European samples had been collected. There were 66 million such alleles present in the African subset, compared to 39 million in the European, and 102 million in the combined non-African subset of the data (1,843 samples).</li>
 <li>The <strong>number of alleles that are unique to subsets</strong> of the data: there are 33 million alleles that are <em>only</em> observed in the African subset of the data, for example, compared to 18 million alleles unique to Southern Asia.</li>
 </ul>
-<div id="fig-allele-counts" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<div id="fig-allele-counts" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-allele-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/2-allele-counts.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%">
+<img src="figures/2-allele-counts.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-allele-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3: Allele-count statistics for geographical subsets of the 1KGP dataset. The panels show, respectively: the number of samples from each region, the total number of non-reference alleles observed in each sample set, and the number of non-reference alleles that are observed <em>only</em> in a given sample set. There are more ‘African’ samples than those from other regions because we have included African American and African Caribbean individuals in this category (<a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> will make it clear why). Note also that the rate of variant discovery slows as the number of samples increases, so the outsized number of African alleles is due more to the region’s diversity than to the number of samples.
@@ -330,10 +337,10 @@ varying haplotype frequencies, the effects of recent variation, etc. --></li>
 <p>The following visualisations are based on the combined 1KGP/Bixbio dataset of 2,816 individuals. From this data there are 377 observed positions along CYP2D6 where variation occurs, and 377 alleles in total. Of the non-major alleles at these sites, most are infrequent: only 44 occur in more than 1% of the dataset. By clustering the variant call patterns of individual samples, we see a few common <strong>genotypes</strong>: that is, variant calls for both chromosomes for each individual. With a further round of analysis we can then recover the individual haplotypes in each genotype by noting that the alleles observed in each genotype are the <em>union</em> of the two underlying haplotypes’ alleles, and that the true set of haplotypes must ‘sum’ to the genotypes. It’s important to note that, like all statistical inference, this is an <em>approximate</em> process – although in this case the data is relatively easy to make sense of.</p>
 <p>In the end this approach identifies a total of 12 haplotypes in the 5,632 genomes in the data set, across 30 ethnicities. Each haplotype is defined by 6 alleles on average. This of course does not mean that all of the individuals treated as possessing a given copy of CYP2D6 have <em>exactly</em> the same sequence of that gene – the clustering process likely ignores spurious differences such as sequencing errors or very recent mutation – but it is immediately apparent which ancestral ‘version’ of CYP2D6 each individual has.</p>
 <p><a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> shows the fraction of each ethnicity’s samples with a given haplotype (so each row sums to 1). This figure summarises many of the points we’ve made in this article, and hopefully now does so in a more <em>intuitive</em> way than the statistics of previous sections. We see, as expected, that significantly more haplotypes – i.e., versions of the gene – exist in African subpopulations than anywhere else, and that non-African variation is by and large a subset of African variation. The non-African subpopulations share strikingly similar sets of haplotypes, with some divergence in Eastern Asian ethnicities. Compare this figure to <a href="#fig-allele-counts" class="quarto-xref">Figure&nbsp;3</a>: it should now be clear why Africa has more distinct alleles in total, as well as many alleles not found in any other region (presumably from haplotypes unique to Africa).</p>
-<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/2-haplotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
+<img src="figures/2-haplotype-heatmap.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;4: Haplotype frequency by ethnicity. Each column represents a CYP2D6 haplotype inferred from the dataset, and each cell in the heatmap shows the fraction of an ethnicity’s samples that have a copy of that haplotype. The values in each row sum to 1.
@@ -341,10 +348,10 @@ Figure&nbsp;4: Haplotype frequency by ethnicity. Each column represents a CYP2D6
 </figure>
 </div>
 <p>The genotypes present in the dataset can be visualised in the same way, demonstrating how haplotypes might be paired together in different subpopulations. These genotype clusters essentially describe all of the possible versions of CYP2D6 that an individual might have (based on the small sample of healthy individuals in the dataset). We see 25 such genotypes,<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> showing similar patterns to that of the previous figure but slightly obscuring the fact that many genotypes overlap due to shared haplotypes.</p>
-<div id="fig-genotypes" class="quarto-float quarto-figure quarto-figure-center" data-fig-align="center">
+<div id="fig-genotypes" class="quarto-float quarto-figure quarto-figure-center">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-genotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="figures/2-genotype-heatmap.svg" class="quarto-figure quarto-figure-center figure-img" height="700">
+<img src="figures/2-genotype-heatmap.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-genotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;5: Genotype frequency by ethnicity. Each column in the figure corresponds to a pair of haplotypes from <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;4</a> as observed in genomes in the dataset. Cells once again represent the fraction of an ethnicity’s samples with a given genotype.
