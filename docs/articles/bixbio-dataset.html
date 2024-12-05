@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Kevin Durant">
+<meta name="dcterms.date" content="2024-10-04">
+<meta name="description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
+
+<title>The Bixbio Genomic Dataset – bixbio</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../images/icon-small.png" rel="icon" type="image/png">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-9706XPGQ3P"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-9706XPGQ3P', { 'anonymize_ip': true});
+</script>
+
+
+<meta property="og:title" content="The Bixbio Genomic Dataset – bixbio">
+<meta property="og:description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
+<meta property="og:image" content="figures/3-geographical.png">
+<meta property="og:site_name" content="bixbio">
+<meta name="twitter:title" content="The Bixbio Genomic Dataset – bixbio">
+<meta name="twitter:description" content="Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.">
+<meta name="twitter:image" content="figures/3-geographical.png">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/icon-small.png" alt="bixbio" class="navbar-logo">
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../articles/haplotype-diversity.html">
+ <span class="dropdown-text">Genetic Diversity</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/bixbio-dataset.html">
+ <span class="dropdown-text">Bixbio Dataset</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../articles/laboratory-optimisation.html">
+ <span class="dropdown-text">Laboratory Optimisation</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#perspective" id="toc-perspective" class="nav-link active" data-scroll-target="#perspective">Perspective</a></li>
+  <li><a href="#the-bixbio-dataset" id="toc-the-bixbio-dataset" class="nav-link" data-scroll-target="#the-bixbio-dataset">The Bixbio dataset</a></li>
+  <li><a href="#data-access" id="toc-data-access" class="nav-link" data-scroll-target="#data-access">Data access</a></li>
+  <li><a href="#acknowledgments" id="toc-acknowledgments" class="nav-link" data-scroll-target="#acknowledgments">Acknowledgments</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">The Bixbio Genomic Dataset</h1>
+</div>
+
+<div>
+  <div class="description">
+    Bixbio’s South African Reference dataset has recently been reanalysed alongside the 1000 Genomes data using DRAGEN.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kevin Durant </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">October 4, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>As part of the <a href="https://emea.illumina.com/company/illumina-for-startups.html">Illumina Accelerator</a> program for startups in late 2021, Bixbio collected and sequenced the genomes of 750 Southern African individuals over the course of a few weeks. Just over half of this data forms the <strong>Bixbio South African Reference</strong> dataset: 397 whole-genome samples from healthy individuals with African or admixed-African ancestry, across 8 South African ethno-linguistic groups. It is to our knowledge the largest genomic dataset from Southern Africa.</p>
+<p>This reference data has been at the core of Bixbio’s research and development since its creation, both internally as we work to unlock the power of diverse genomic data, and externally in support of local research efforts. The bioinformatics landscape has changed significantly since our first analysis of this dataset, however, and in bringing the reference data up to date Bixbio has recently had the pleasure of collaborating with the DRAGEN team at Illumina, who supported the reanalysis of the 312 highest-coverage samples by providing access to the latest version of the complete DRAGEN and PopGen pipelines <span class="citation" data-cites="behera2024comprehensive">[<a href="#ref-behera2024comprehensive" role="doc-biblioref">1</a>]</span>. Not only have variants of all sizes been called using state-of-the-art techniques – including multi-ethnicity reference genomes designed to reduce bias at the alignment stage of the analysis – but the Bixbio cohort has also been joint-genotyped with the entire 1000 Genomes Project (1KGP) dataset, effectively augmenting the latter with data from Southern African subpopulations (a region which was otherwise unrepresented).</p>
+<p>Together the combined dataset provides a uniquely powerful resource for genomic research in Africa, the most genetically diverse region in the world. It includes 2,816 whole-genome samples, of which 973 are African; and 34 ethnicities, including 15 of recent African descent. A more in-depth look at the diversity of the dataset is presented <a href="2-haplotype-diversity.html" target="_blank">elsewhere</a>, including illustrative statistics related to genetic diversity at both the allelic and haplotype levels. We reproduce here, in <a href="#fig-haplotypes" class="quarto-xref">Figure&nbsp;1</a>, a view of the distinct haplotypes observed in the region of the CYP2D6 gene as they occur in samples from different ethnicities, demonstrating one way in which global genetic diversity can to a large extent be viewed as a subset of African diversity.</p>
+<div id="fig-haplotypes" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/2-haplotype-heatmap.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-haplotypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Haplotype frequency by ethnicity in the combined 1KGP/Bixbio dataset. Each column represents a CYP2D6 haplotype inferred from the dataset, and each cell in the heatmap shows the fraction of an ethnicity’s samples that have a copy of that haplotype. The values in each row sum to 1.
+</figcaption>
+</figure>
+</div>
+<section id="perspective" class="level2">
+<h2 data-anchor-id="perspective">Perspective</h2>
+<p>The roughly 400 samples present in the Bixbio reference dataset may not seem like much compared to the scope of modern biobanks: the largest repository of genomic data in the world, for instance, is the UK Biobank, which currently consists of around 500,000 whole-genome samples; and the largest resource for aggregate genomic data, gnomAD, includes allele statistics from roughly 76,000 whole genomes. The UK Biobank is primarily made up of data from white individuals – approximately 95.6% of the dataset – alongside a small fraction of black individuals – roughly 1.6% <span class="citation" data-cites="ukbiobank2024ethnic constantinescu2022framework">[<a href="#ref-ukbiobank2024ethnic" role="doc-biblioref">2</a>,<a href="#ref-constantinescu2022framework" role="doc-biblioref">3</a>]</span>. (Recent UK census data reports values of 83.1% and 3.7% for these ethnic groups respectively, for comparison <span class="citation" data-cites="office2024ethnic wikipedia2024demographics">[<a href="#ref-office2024ethnic" role="doc-biblioref">4</a>,<a href="#ref-wikipedia2024demographics" role="doc-biblioref">5</a>]</span>.) On the other hand, gnomAD’s whole-genome dataset is significantly more diverse: although 51.7% of its samples are from European ethnicities (not necessarily white), 27.2% are from African or admixed African groups <span class="citation" data-cites="gnomad2024whats">[<a href="#ref-gnomad2024whats" role="doc-biblioref">6</a>]</span>.</p>
+<p>What does this mean in terms of sample numbers? Well, <em>combined</em>, two of the largest genomic datasets in the world include 28,926 (8,182 + 20,744) whole-genome samples from individuals of African descent. In addition to the fact that this is an alarmingly small number, there are three things to note here:</p>
+<ol type="1">
+<li><p><strong>Almost no genomic data comes from Southern Africa</strong> – let alone South Africa. Due to the fact that very little genetic sequencing occurs on the African continent (a disparity that is unfortunately growing <span class="citation" data-cites="mills2020gwas">[<a href="#ref-mills2020gwas" role="doc-biblioref">7</a>]</span>), much of the African-ancestry data that does exist represents African American, West African, and East African subpopulations; primarily from more developed African nations such as Nigeria and Kenya. This is a crucial omission, not just because there is more genetic diversity within the African continent than there is outside of it (see again our <a href="2-haplotype-diversity.html" target="_blank">related article</a>), but because these datasets are used to improve both bioinformatics and medical research and methods – and research has shown that the under-representation of ethnic groups can lead to inequalities in the efficacy of such methods <span class="citation" data-cites="martin2019clinical">[<a href="#ref-martin2019clinical" role="doc-biblioref">8</a>]</span>.</p></li>
+<li><p><strong>All genomic data is not created equal</strong>, because large data sets are analysed using a variety of software pipelines. The sequencing and analysis of genomic data – the ‘calling’ of variant alleles from DNA ‘reads’ – is a complex, constantly evolving science. The last few years have seen, for instance, the introduction of long-read sequencing <span class="citation" data-cites="wang2021nanopore">[<a href="#ref-wang2021nanopore" role="doc-biblioref">9</a>]</span>, machine learning-based variant-calling algorithms <span class="citation" data-cites="poplin2018universal">[<a href="#ref-poplin2018universal" role="doc-biblioref">10</a>]</span>, and non-linear reference ‘pangenomes’ <span class="citation" data-cites="liao2023draft">[<a href="#ref-liao2023draft" role="doc-biblioref">11</a>]</span>. While this is in general a <em>good</em> thing for diverse data sets, it introduces real complications, since the outputs of different pipelines – and often even versions of the same pipeline – can generally not be compared or combined directly. The UK Biobank’s whole-genome data, for example, was analysed using two different pipelines, the most recent of which was released in 2020 and has been superseded by multiple newer versions. The gnomAD dataset is far more complex, involving data from more than 300 sources, and as such its maintainers were required to develop a pipeline of their own to combine and standardise disparate data <span class="citation" data-cites="gnomad2024gnomad">[<a href="#ref-gnomad2024gnomad" role="doc-biblioref">12</a>]</span>. The point here is that if the goal is a statistical analysis of a large number of genomes, the analysis procedure matters arguably as much as the composition of the dataset; and it isn’t good enough for African genomic data to simply exist: it needs to be analysed correctly as well.</p></li>
+<li><p><strong>Not all genomic data is equally accessible</strong>. This is perhaps perfectly understandable when one considers what whole-genome data is: a complete record of an individual’s DNA sequence. The ethical concerns surrounding the capture, access, and study of any genomic data are not trivial – especially when it comes to under-represented and previously disadvantaged people groups. The UK Biobank data contains individual whole-genome data, and researchers who apply for access to the data undergo a comprehensive vetting procedure. The gnomAD data is <em>aggregated</em>, i.e., each variant allele in the database is annotated with the frequency with which it occurs in certain subpopulations – but it is impossible to tell which alleles any single individual has. The gnomAD data is publicly accessible for this very reason: that genomes cannot be directly accessed.</p></li>
+</ol>
+<p>There are two important, diverse, publicly accessible datasets that are exceptions to some or all of the above points: the 1000 Genomes Project (1KGP <span class="citation" data-cites="byrska2022high">[<a href="#ref-byrska2022high" role="doc-biblioref">13</a>]</span>) and the Human Genome Diversity Project (HGDP <span class="citation" data-cites="bergstrom2020insights">[<a href="#ref-bergstrom2020insights" role="doc-biblioref">14</a>]</span>). Both of these datasets include significant numbers of samples from globally diverse ethnicities, and both are publicly accessible. The 1KGP dataset, too, is consistently reanalysed using up-to-date pipelines (by, for instance, Illumina <span class="citation" data-cites="illumina20241000">[<a href="#ref-illumina20241000" role="doc-biblioref">15</a>]</span>) to ensure that it remains a valuable resource for global genomic research. The 1KGP cohort consists of 2,504 samples (excluding related individuals), of which 661 are of African ancestry (including 157 African American and African Caribbean samples). The HGDP cohort consists of 828 samples, of which 88 are from Africa (6 from Southern Africa). Both of these datasets are included in and contribute to gnomAD’s statistics.</p>
+</section>
+<section id="the-bixbio-dataset" class="level2 page-columns page-full">
+<h2 data-anchor-id="the-bixbio-dataset">The Bixbio dataset</h2>
+<p>In this light, the reanalysis of the Bixbio reference dataset in concert with the 1KGP cohort is perhaps more significant: not only does it significantly bolster the number of African genomes available to researchers such as ourselves, but it also provides an unprecedented view of Southern African genetics using the most advanced analysis pipelines possible. Figures <a href="#fig-ethnicity-map" class="quarto-xref">2</a> and <a href="#fig-ethnicity-counts" class="quarto-xref">3</a> provide a simple overview of the African ethnicities included in the dataset.</p>
+<div>
+
+</div>
+<div class="quarto-layout-panel page-columns page-full" data-layout-nrow="2">
+<div class="quarto-layout-row page-full">
+<div class="quarto-layout-cell page-columns page-full" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-ethnicity-map" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ethnicity-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/3-geographical.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-ethnicity-map-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Locations at which the African samples included in the 1KGP (orange) and Bixbio (blue) datasets were collected, including African American and African Caribbean samples.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row page-full">
+<div class="quarto-layout-cell page-columns page-full" style="flex-basis: 100.0%;justify-content: flex-start;">
+<div id="fig-ethnicity-counts" class="quarto-float quarto-figure quarto-figure-center page-columns page-full">
+<figure class="quarto-float quarto-float-fig figure page-columns page-full">
+<div aria-describedby="fig-ethnicity-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/3-ethnicity-counts.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-margin quarto-float-caption quarto-float-fig margin-caption" id="fig-ethnicity-counts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: African ethnicities in the 1KGP and Bixbio datasets, along with their respective sample counts.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>The size and diversity of the Bixbio dataset should perhaps give one pause: not because of how much additional data it provides (it nearly matches the number of African samples and ethnicities in the 1KGP cohort), but because of what it still fails to capture. South Africa is one of the most diverse countries in the world – it is home to significant subpopulations of African, Indian, white, and coloured<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> ethnicities, and has 11 official spoken languages. While Bixbio’s dataset compares favourably to both the 1KGP and HGDP cohorts in terms of both sample and ethnicity numbers, it doesn’t yet represent the full scope of genetic diversity present in South Africa. And if there remains work to be done in this regard within a single Southern African country, how much more is required before we have access to a truly African (and a truly global) genomic dataset?</p>
+<p>That is, of course, a long-term goal. For now, the Bixbio cohort has already proved indispensable to research projects at Bixbio, and is now more useful than ever thanks to this reanalysis. As a company and as a team we are excited, and continually encouraged, to play a small part in advancing genomic analysis from our unique, Southern African perspective. The goal, as always, is to create solutions that focus on what makes diverse data so powerful, and to use these approaches to transform genomic medicine for everyone.</p>
+</section>
+<section id="data-access" class="level2">
+<h2 data-anchor-id="data-access">Data access</h2>
+<p>The Bixbio South African Reference dataset was created to serve as a reference for genetic variation in Southern Africa and beyond, and can in specific circumstances be made available to researchers working on projects that have the potential to positively impact the communities involved (e.g., genetic research related to locally prevalent medical conditions, or the development of tools to improve the accuracy of bioinformatics in Africa). Interested parties should contact the Bixbio team directly.</p>
+</section>
+<section id="acknowledgments" class="level2">
+<h2 data-anchor-id="acknowledgments">Acknowledgments</h2>
+<p>Bixbio has been fortunate enough to work with many individuals who are similarly passionate about advancing diversity in genomics. We are extremely to grateful to Illumina, and in particular the DRAGEN team, for their support in creating the dataset described here. The sequencing of the Bixbio samples was made possible thanks to the Illumina Accelerator program in Cambridge, UK, and this combined reanalysis of the 1KGP/Bixbio dataset was again enabled by members of the DRAGEN team. We thank Ursula Arndt<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, Shyamal Mehtalia, and Rami Mehio in particular.</p>
+
+
+
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-behera2024comprehensive" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Behera S, Catreux S, Rossi M, Truong S, Huang Z, Ruehle M, et al. Comprehensive genome analysis and variant detection at scale using DRAGEN. Nature Biotechnology. 2024. Available: <a href="https://doi.org/10.1038/s41587-024-02382-1">https://doi.org/10.1038/s41587-024-02382-1</a></div>
+</div>
+<div id="ref-ukbiobank2024ethnic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">UK Biobank. Ethnic background statistics. Available: <a href="https://biobank.ndph.ox.ac.uk/ukb/field.cgi?id=21000">https://biobank.ndph.ox.ac.uk/ukb/field.cgi?id=21000</a></div>
+</div>
+<div id="ref-constantinescu2022framework" class="csl-entry" role="listitem">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">Constantinescu A-E, Mitchell RE, Zheng J, Bull CJ, Timpson NJ, Amulic B, et al. A framework for research into continental ancestry groups of the UK <span>B</span>iobank. Human Genomics. 2022;16. Available: <a href="https://doi.org/10.1186/s40246-022-00380-5">https://doi.org/10.1186/s40246-022-00380-5</a></div>
+</div>
+<div id="ref-office2024ethnic" class="csl-entry" role="listitem">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">Office for National Statistics. Ethnic group, <span>E</span>ngland and <span>W</span>ales: Census 2021. Available: <a href="https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/ethnicity/bulletins/ethnicgroupenglandandwales/census2021">https://www.ons.gov.uk/peoplepopulationandcommunity/culturalidentity/ethnicity/bulletins/ethnicgroupenglandandwales/census2021</a></div>
+</div>
+<div id="ref-wikipedia2024demographics" class="csl-entry" role="listitem">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">Wikipedia. Demographics of the <span>U</span>nited <span>K</span>ingdom. Available: <a href="https://en.wikipedia.org/wiki/Demographics_of_the_United_Kingdom#Ethnicity_and_race">https://en.wikipedia.org/wiki/Demographics_of_the_United_Kingdom#Ethnicity_and_race</a></div>
+</div>
+<div id="ref-gnomad2024whats" class="csl-entry" role="listitem">
+<div class="csl-left-margin">6. </div><div class="csl-right-inline">gnomAD. What’s in gnomAD. Available: <a href="https://gnomad.broadinstitute.org/stats">https://gnomad.broadinstitute.org/stats</a></div>
+</div>
+<div id="ref-mills2020gwas" class="csl-entry" role="listitem">
+<div class="csl-left-margin">7. </div><div class="csl-right-inline">Mills MC, Rahal C. The GWAS diversity monitor tracks diversity by disease in real time. Nature Genetics. 2020;52: 242–243. Available: <a href="https://doi.org/10.1038/s41588-020-0580-y">https://doi.org/10.1038/s41588-020-0580-y</a></div>
+</div>
+<div id="ref-martin2019clinical" class="csl-entry" role="listitem">
+<div class="csl-left-margin">8. </div><div class="csl-right-inline">Martin AR, Kanai M, Kamatani Y, Okada Y, Neale BM, Daly MJ. Clinical use of current polygenic risk scores may exacerbate health disparities. Nature Genetics. 2019;51: 584–591. Available: <a href="https://doi.org/10.1038/s41588-019-0379-x">https://doi.org/10.1038/s41588-019-0379-x</a></div>
+</div>
+<div id="ref-wang2021nanopore" class="csl-entry" role="listitem">
+<div class="csl-left-margin">9. </div><div class="csl-right-inline">Wang Y, Zhao Y, Bollas A, Wang Y, Au KF. Nanopore sequencing technology, bioinformatics and applications. Nature Biotechnology. 2021;39: 1348–1365. Available: <a href="https://doi.org/10.1038/s41587-021-01108-x">https://doi.org/10.1038/s41587-021-01108-x</a></div>
+</div>
+<div id="ref-poplin2018universal" class="csl-entry" role="listitem">
+<div class="csl-left-margin">10. </div><div class="csl-right-inline">Poplin R, Chang P-C, Alexander D, Schwartz S, Colthurst T, Ku A, et al. A universal SNP and small-indel variant caller using deep neural networks. Nature Biotechnology. 2018;36: 983–987. Available: <a href="https://doi.org/10.1038/nbt.4235">https://doi.org/10.1038/nbt.4235</a></div>
+</div>
+<div id="ref-liao2023draft" class="csl-entry" role="listitem">
+<div class="csl-left-margin">11. </div><div class="csl-right-inline">Liao W-W, Asri M, Ebler J, Doerr D, Haukness M, Hickey G, et al. A draft human pangenome reference. Nature. 2023;617: 312–324. Available: <a href="https://doi.org/10.1038/s41586-023-05896-x">https://doi.org/10.1038/s41586-023-05896-x</a></div>
+</div>
+<div id="ref-gnomad2024gnomad" class="csl-entry" role="listitem">
+<div class="csl-left-margin">12. </div><div class="csl-right-inline">gnomAD. gnomAD v4.0. Available: <a href="https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/#sample-qc">https://gnomad.broadinstitute.org/news/2023-11-gnomad-v4-0/#sample-qc</a></div>
+</div>
+<div id="ref-byrska2022high" class="csl-entry" role="listitem">
+<div class="csl-left-margin">13. </div><div class="csl-right-inline">Byrska-Bishop M, Evani US, Zhao X, Basile AO, Abel HJ, Regier AA, et al. High-coverage whole-genome sequencing of the expanded 1000 <span>G</span>enomes <span>P</span>roject cohort including 602 trios. Cell. 2022;185: 3426–3440. Available: <a href="https://doi.org/10.1016/j.cell.2022.08.004">https://doi.org/10.1016/j.cell.2022.08.004</a></div>
+</div>
+<div id="ref-bergstrom2020insights" class="csl-entry" role="listitem">
+<div class="csl-left-margin">14. </div><div class="csl-right-inline">Bergström A, McCarthy SA, Hui R, Almarri MA, Ayub Q, Danecek P, et al. Insights into human genetic variation and population history from 929 diverse genomes. Science. 2020;367. Available: <a href="https://doi.org/10.1126/science.aay5012">https://doi.org/10.1126/science.aay5012</a></div>
+</div>
+<div id="ref-illumina20241000" class="csl-entry" role="listitem">
+<div class="csl-left-margin">15. </div><div class="csl-right-inline">Illumina. 1000 <span>G</span>enomes phase 3 reanalysis with DRAGEN 3.5, 3.7, 4.0, and 4.2. Available: <a href="https://registry.opendata.aws/ilmn-dragen-1kgp">https://registry.opendata.aws/ilmn-dragen-1kgp</a></div>
+</div>
+<div id="ref-dewit2010genome" class="csl-entry" role="listitem">
+<div class="csl-left-margin">16. </div><div class="csl-right-inline">De Wit E, Delport W, Rugamika CE, Meintjes A, Möller M, Van Helden PD, et al. Genome-wide analysis of the structure of the <span>S</span>outh <span>A</span>frican coloured population in the <span>W</span>estern <span>C</span>ape. Human Genetics. 2010;128: 145–153. Available: <a href="https://doi.org/10.1007/s00439-010-0836-1">https://doi.org/10.1007/s00439-010-0836-1</a></div>
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Referring to the admixed African, European, and Asian racial group in South Africa – a group that has one of the highest levels of mixed ancestry in the world <span class="citation" data-cites="dewit2010genome">[<a href="#ref-dewit2010genome" role="doc-biblioref">16</a>]</span>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://www.linkedin.com/in/ursula-arndt/">LinkedIn</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 Bixbio Ltd</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
